@@ -7,6 +7,8 @@ public class MainMenu : MonoBehaviour
 {
     [SerializeField]
     private GameObject levelsMenu;
+    [SerializeField]
+    private GameObject AudioSettings;
 
     private void Awake()
     {
@@ -22,6 +24,11 @@ public class MainMenu : MonoBehaviour
     public void showLevels()
     {
         levelsMenu.SetActive(true);
+    }
+
+    public void showSettings()
+    {
+        AudioSettings.SetActive(true);
     }
 
     public void exitGame()
