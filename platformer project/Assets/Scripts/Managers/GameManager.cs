@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
 
+    
+
     //level managment
     public int currentLevel = 1;
     public bool[] levelCleared;//changes the index of each level to true to unlock it in the levels menu

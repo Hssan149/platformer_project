@@ -10,6 +10,8 @@ TagManager:
   - level3
   - level4
   - level5
+  - begin_wall
+  - end_wall
   layers:
   - Default
   - TransparentFX
