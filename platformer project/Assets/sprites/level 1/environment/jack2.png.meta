@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: d213d793c3f8b0e4ea01b91bda5100b2
+guid: 6f9c08ab8820a554eb9ad4b637890085
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,13 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: tileset_0
+      name: jack2_0
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 63
-        height: 20
+        x: 4
+        y: 12
+        width: 25
+        height: 26
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -119,124 +119,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fe12ac3a9236e1e4fa2eff8868325f14
-      internalID: 1528917967
+      spriteID: e979683008b2c6049ad48bad8b24b80f
+      internalID: 629003267
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: tileset_1
+      name: jack2_1
       rect:
         serializedVersion: 2
-        x: 224
-        y: 16
-        width: 32
-        height: 21
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: abc020dab83621e49a9455a293440906
-      internalID: 417005861
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_2
-      rect:
-        serializedVersion: 2
-        x: 304
-        y: 96
-        width: 96
-        height: 48
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a99e519e28712804bb07ad8d25769b52
-      internalID: -422338947
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_3
-      rect:
-        serializedVersion: 2
-        x: 16
-        y: 48
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ad9bb534d4d6bac47837508060aeb24a
-      internalID: -1405334334
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_4
-      rect:
-        serializedVersion: 2
-        x: 176
-        y: 48
-        width: 32
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d50ced721ea9e7a46899f367666cc950
-      internalID: -1500676608
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_5
-      rect:
-        serializedVersion: 2
-        x: 260
-        y: 64
-        width: 24
-        height: 32
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: a3c341b8e01ea0944a1050ab2cef0656
-      internalID: 1507122826
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: tileset_6
-      rect:
-        serializedVersion: 2
-        x: 300
-        y: 16
-        width: 100
+        x: 35
+        y: 4
+        width: 48
         height: 31
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -245,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 782fb98cc0192c04fbb9962c96685ab1
-      internalID: -1300857043
+      spriteID: e4ac6c5b8c05a1c44abc0131302900a0
+      internalID: -1023824743
       vertices: []
       indices: 
       edges: []
@@ -262,13 +157,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      tileset_0: 1528917967
-      tileset_1: 417005861
-      tileset_2: -422338947
-      tileset_3: -1405334334
-      tileset_4: -1500676608
-      tileset_5: 1507122826
-      tileset_6: -1300857043
+      jack2_0: 629003267
+      jack2_1: -1023824743
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

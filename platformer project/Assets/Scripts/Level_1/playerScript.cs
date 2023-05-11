@@ -20,7 +20,17 @@ public class playerScript : MonoBehaviour
 
     void Update()
     {
-   
+        move();
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+            isGrounded = true;
+    }
+
+    void move()
+    {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
@@ -30,11 +40,5 @@ public class playerScript : MonoBehaviour
         }
 
         rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Ground")
-            isGrounded = true;
     }
 }
