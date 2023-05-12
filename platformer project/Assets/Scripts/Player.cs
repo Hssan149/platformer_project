@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "spikes")
         {
-            print(GameManager.getInstance().lives);
             if (GameManager.getInstance().lives > 0)
             {
                 GameManager.getInstance().lives--;
@@ -59,6 +58,11 @@ public class Player : MonoBehaviour
         {
             print(spawnPoint.gameObject.name);
             spawnPoint = collision.gameObject;
+        }
+        else if(collision.gameObject.tag == "coin")
+        {
+            Destroy(collision.gameObject);
+            GameManager.getInstance().coins++;
         }
 
     }

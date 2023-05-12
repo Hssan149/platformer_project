@@ -17,6 +17,7 @@ TagManager:
   - platform
   - attack
   - spawnPoint
+  - coin
   layers:
   - Default
   - TransparentFX
