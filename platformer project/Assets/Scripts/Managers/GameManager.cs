@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
     public int coins = 0;
     public int levelCoins; //number of coins in a level.
 
+
+
     public static GameManager getInstance()
     {
         if (instance == null)
@@ -45,7 +47,10 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
 
+    }
 
 }
 

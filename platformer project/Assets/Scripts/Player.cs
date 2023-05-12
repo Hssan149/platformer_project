@@ -13,9 +13,19 @@ public class Player : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sp;
     private Rigidbody2D rb;
+
+    //spawn points
     [SerializeField]
     private GameObject startPoint;
     private GameObject spawnPoint;
+
+    //abilities
+    [SerializeField]
+    private GameObject shootingPoint;
+    private bool haveFireBall=true;
+    private bool canFireBall=true;
+    [SerializeField]
+    private GameObject fireBall;
 
 
     void Start()
@@ -33,6 +43,8 @@ public class Player : MonoBehaviour
         jump();
         attack();
         death();
+        if (haveFireBall)
+            shootFireBall();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -55,32 +67,24 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "spawnPoint")
-        {
-            print(spawnPoint.gameObject.name);
             spawnPoint = collision.gameObject;
-        }
-        else if(collision.gameObject.tag == "coin")
+        else if (collision.gameObject.tag == "coin")
         {
             Destroy(collision.gameObject);
             GameManager.getInstance().coins++;
         }
-
     }
 
     void move()
     {
-        
-
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         anim.SetFloat("speed", Mathf.Abs(horizontalInput));
         if (horizontalInput != 0)
             if (horizontalInput >= 0)
                 sp.flipX = false;
             else
-                sp.flipX = true;
-               
-        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);
-        
+                sp.flipX = true;   
+        rb.velocity = new Vector2(horizontalInput * moveSpeed, rb.velocity.y);        
     }
 
     void jump()
@@ -112,7 +116,7 @@ public class Player : MonoBehaviour
     }
     IEnumerator waitAttack(GameObject att)
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         att.GetComponent<BoxCollider2D>().enabled = false;
         anim.SetBool("attacking", false);
         canAttack = true;
@@ -125,5 +129,21 @@ public class Player : MonoBehaviour
             transform.position = startPoint.transform.position;
             GameManager.getInstance().lives = 3;
         }
+    }
+
+    void shootFireBall()
+    {
+        if(canFireBall && Input.GetKeyDown(KeyCode.Z))
+        {
+            canFireBall = false;
+            Instantiate(fireBall, transform.position, Quaternion.identity);
+            StartCoroutine("fireBallCoolDown");
+        }
+    }
+    
+    IEnumerator fireBallCoolDown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canFireBall = true;
     }
 }
