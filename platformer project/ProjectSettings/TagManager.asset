@@ -13,6 +13,8 @@ TagManager:
   - begin_wall
   - end_wall
   - Ground
+  - spikes
+  - platform
   layers:
   - Default
   - TransparentFX

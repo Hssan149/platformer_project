@@ -13,6 +13,7 @@ public class GameManager : MonoBehaviour
     //level managment
     public int currentLevel = 1;
     public bool[] levelCleared;//changes the index of each level to true to unlock it in the levels menu
+    public int lives = 3;
 
     public static GameManager getInstance()
     {
