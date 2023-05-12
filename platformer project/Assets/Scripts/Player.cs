@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     private Animator anim;
     private SpriteRenderer sp;
     private Rigidbody2D rb;
+    [SerializeField]
+    private GameObject startPoint;
+    private GameObject spawnPoint;
 
 
     void Start()
@@ -21,6 +24,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
         gameObject.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        spawnPoint = startPoint;
     }
 
     void Update()
@@ -28,7 +32,7 @@ public class Player : MonoBehaviour
         move();
         jump();
         attack();
-        
+        death();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -40,16 +44,29 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "spikes")
         {
+            print(GameManager.getInstance().lives);
             if (GameManager.getInstance().lives > 0)
             {
                 GameManager.getInstance().lives--;
-
+                transform.position = spawnPoint.transform.position;
             }
         }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "spawnPoint")
+        {
+            print(spawnPoint.gameObject.name);
+            spawnPoint = collision.gameObject;
+        }
+
+    }
+
     void move()
     {
+        
+
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         anim.SetFloat("speed", Mathf.Abs(horizontalInput));
         if (horizontalInput != 0)
@@ -89,12 +106,20 @@ public class Player : MonoBehaviour
             
         }
     }
-
     IEnumerator waitAttack(GameObject att)
     {
         yield return new WaitForSeconds(1f);
         att.GetComponent<BoxCollider2D>().enabled = false;
         anim.SetBool("attacking", false);
         canAttack = true;
+    }
+
+    void death()
+    {
+        if (GameManager.getInstance().lives == 0)
+        {
+            transform.position = startPoint.transform.position;
+            GameManager.getInstance().lives = 3;
+        }
     }
 }
