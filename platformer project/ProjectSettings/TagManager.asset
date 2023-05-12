@@ -15,6 +15,7 @@ TagManager:
   - Ground
   - spikes
   - platform
+  - attack
   layers:
   - Default
   - TransparentFX

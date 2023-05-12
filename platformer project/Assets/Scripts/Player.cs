@@ -8,11 +8,11 @@ public class Player : MonoBehaviour
 {
     public float moveSpeed = 4f;
     public float jumpForce = 9.75f;
+    private bool canAttack = true;
     public bool isGrounded = false;
     private Animator anim;
     private SpriteRenderer sp;
     private Rigidbody2D rb;
-    [SerializeField]
 
 
     void Start()
@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         sp = GetComponent<SpriteRenderer>();
+        gameObject.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
     }
 
     void Update()
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
         move();
         jump();
         attack();
+        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -41,9 +43,9 @@ public class Player : MonoBehaviour
             if (GameManager.getInstance().lives > 0)
             {
                 GameManager.getInstance().lives--;
+
             }
         }
-
     }
 
     void move()
@@ -72,6 +74,27 @@ public class Player : MonoBehaviour
 
     void attack()
     {
+        if(Input.GetKeyDown(KeyCode.X)&&canAttack)
+        {
+            canAttack = false;
+            GameObject Attack = gameObject.transform.GetChild(0).gameObject;
+            Attack.GetComponent<BoxCollider2D>().enabled = true;
+            if (sp.flipX == true)
+                Attack.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
+            else
+                Attack.transform.position = transform.position;
+            anim.SetBool("attacking", true);
+            StartCoroutine("waitAttack",Attack);
+           
+            
+        }
     }
 
+    IEnumerator waitAttack(GameObject att)
+    {
+        yield return new WaitForSeconds(1f);
+        att.GetComponent<BoxCollider2D>().enabled = false;
+        anim.SetBool("attacking", false);
+        canAttack = true;
+    }
 }
