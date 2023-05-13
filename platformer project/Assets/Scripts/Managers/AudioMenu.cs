@@ -12,7 +12,7 @@ public class AudioMenu : MonoBehaviour
     public Slider sfxSlider;
     public void goBack()
     {
-        GameObject.FindGameObjectWithTag("levelsMenu").SetActive(false);
+        gameObject.SetActive(false);
     }
 
     private void Awake()

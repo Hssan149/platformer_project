@@ -32,7 +32,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject audio_settings;
 
-    private bool paused = false;
+    public static bool paused = false;
+    public static bool dead = false;
+    public static bool won = false;
 
 
     void Start()
@@ -46,24 +48,29 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (!paused) 
+        { 
         move();
         jump();
         attack();
         death();
         if (haveFireBall)
             shootFireBall();
-        if (Input.GetKeyDown(KeyCode.Escape))
+        }
+        if (Input.GetKeyDown(KeyCode.Escape)&&!dead&&!won)
         {
             if (!paused)
             {
                 Time.timeScale = 0;
+                if(!pause_menu.activeSelf)
                 pause_menu.SetActive(true);
                 paused = !paused;
             }
             else
             {
                 Time.timeScale = 1;
-                //pause_menu.SetActive(false);
+                if(pause_menu.activeSelf)
+                pause_menu.SetActive(false);
                 paused = !paused;
                 if (audio_settings.activeSelf)
                     audio_settings.SetActive(false);
@@ -150,10 +157,25 @@ public class Player : MonoBehaviour
     {
         if (GameManager.getInstance().lives == 0)
         {
+            Time.timeScale = 0;
+            dead = true;
+            pause_menu.transform.GetChild(0).gameObject.SetActive(false);
+            pause_menu.SetActive(true);
             transform.position = startPoint.transform.position;
             GameManager.getInstance().lives = 3;
             AudioManager.Instance.stopMusic("bgm_level1");
+            
+
         }
+    }
+    
+    void win()
+    {
+        Time.timeScale = 0;
+        won = true;
+        pause_menu.transform.GetChild(0).gameObject.SetActive(false);
+        pause_menu.transform.GetChild(4).gameObject.SetActive(true);
+
     }
 
     void shootFireBall()

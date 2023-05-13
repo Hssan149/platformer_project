@@ -7,7 +7,7 @@ public class Levels : MonoBehaviour
 {
     public void goBack ()
     {
-        GameObject.FindGameObjectWithTag("levelsMenu").SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void startLevel1()

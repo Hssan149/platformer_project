@@ -6,26 +6,26 @@ using UnityEngine.SceneManagement;
 public class In_Game_Menu : MonoBehaviour
 {
     [SerializeField]
-    private GameObject pause_menu;
-    [SerializeField]
-    private GameObject lose_menu;
-    [SerializeField]
-    private GameObject win_menu;
-    [SerializeField]
-    private GameObject audio_settings;
+    private GameObject AudioMenu;
     
     
 
     public void resume()
     {
         Time.timeScale = 1;
-        //pause = !pause;
-        pause_menu.SetActive(false);
+        Player.paused = !Player.paused;
+        gameObject.SetActive(false);
 
     }
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+        Player.paused = !Player.paused;
+        Player.dead = !Player.dead;
+        AudioManager.Instance.playMusic("bgm_level1");
+        if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         //reset gameManager
 
     }
@@ -33,17 +33,23 @@ public class In_Game_Menu : MonoBehaviour
     public void exit()
     {
         SceneManager.LoadScene("MainMenu");
+        Time.timeScale = 1;
+        Player.paused = !Player.paused;
+        Player.dead = !Player.dead;
+        AudioManager.Instance.playMusic("bgm_mainMenu");
+        if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
+            gameObject.transform.GetChild(0).gameObject.SetActive(true);
         //reset gameManager
     }
 
     public void nextLevel()
     {
-        //load nextLevel
+        Time.timeScale = 1;
+        //load next scene
     }
 
     public void audioSettings()
     {
-        audio_settings.SetActive(true);
-
+        AudioMenu.SetActive(true);
     }
 }

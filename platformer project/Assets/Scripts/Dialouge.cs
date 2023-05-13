@@ -61,8 +61,8 @@ public class Dialouge : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 gameObject.SetActive(false);
-                AudioManager.Instance.playMusic("bgm_level1");
                 SceneManager.LoadScene("level1");
+                AudioManager.Instance.playMusic("bgm_level1");
             }
         }
     }
