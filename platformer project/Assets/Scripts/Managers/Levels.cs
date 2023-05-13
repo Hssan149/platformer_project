@@ -38,5 +38,6 @@ public class Levels : MonoBehaviour
     {
         if (GameManager.getInstance().levelCleared[4])
             SceneManager.LoadScene("level5");
+        
     }
 }

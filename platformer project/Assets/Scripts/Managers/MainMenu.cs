@@ -15,7 +15,13 @@ public class MainMenu : MonoBehaviour
         if(levelsMenu.activeSelf)
             levelsMenu.SetActive(false);
     }
-    public void PlayGame()
+
+    public void newGame()
+    {
+        SceneManager.LoadScene("CutScene");
+    }
+
+    public void continueGame()
     {
         string level = "level" + GameManager.getInstance().currentLevel;
         SceneManager.LoadScene(level);

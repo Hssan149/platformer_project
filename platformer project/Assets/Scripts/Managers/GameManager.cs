@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -49,7 +50,22 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        switch (SceneManager.GetActiveScene().name)
+        {
+            case "level1":
+                AudioManager.Instance.playMusic("bgm_level1");
+                break;
 
+            default:
+                AudioManager.Instance.playMusic("bgm_mainMenu");
+                break;
+        }
+
+    }
+
+    private void Update()
+    {
+        
     }
 
 }
