@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;
     public bool[] levelCleared;//changes the index of each level to true to unlock it in the levels menu
     public int lives = 3;
+    public bool newGame = false;
 
     public int coins = 0;
     public int levelCoins; //number of coins in a level.
@@ -50,16 +51,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        switch (SceneManager.GetActiveScene().name)
-        {
-            case "level1":
-                AudioManager.Instance.playMusic("bgm_level1");
-                break;
-
-            default:
-                AudioManager.Instance.playMusic("bgm_mainMenu");
-                break;
-        }
+       
 
     }
 

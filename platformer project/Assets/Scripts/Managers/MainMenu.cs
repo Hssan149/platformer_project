@@ -18,14 +18,19 @@ public class MainMenu : MonoBehaviour
 
     public void newGame()
     {
+        GameManager.getInstance().newGame = true;
+        PlayerPrefs.SetInt("newGame", (1));
+        PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadScene("CutScene");
     }
 
     public void continueGame()
     {
-        string level = "level" + GameManager.getInstance().currentLevel;
-        SceneManager.LoadScene(level);
-        AudioManager.Instance.playMusic("bgm_level1");
+        if (PlayerPrefs.GetInt("newGame") ==1) {
+            string level = "level" + PlayerPrefs.GetInt("currentLevel");
+            SceneManager.LoadScene(level);
+            AudioManager.Instance.playMusic("bgm_level1");
+        }
     }
 
     public void showLevels()
