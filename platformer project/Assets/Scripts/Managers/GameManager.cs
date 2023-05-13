@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
+    
     
 
     //level managment
@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
     public int coins = 0;
     public int levelCoins; //number of coins in a level.
 
-
+    
+    
 
     public static GameManager getInstance()
     {

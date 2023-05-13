@@ -27,6 +27,13 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject fireBall;
 
+    [SerializeField]
+    private GameObject pause_menu;
+    [SerializeField]
+    private GameObject audio_settings;
+
+    private bool paused = false;
+
 
     void Start()
     {
@@ -45,6 +52,23 @@ public class Player : MonoBehaviour
         death();
         if (haveFireBall)
             shootFireBall();
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!paused)
+            {
+                Time.timeScale = 0;
+                pause_menu.SetActive(true);
+                paused = !paused;
+            }
+            else
+            {
+                Time.timeScale = 1;
+                //pause_menu.SetActive(false);
+                paused = !paused;
+                if (audio_settings.activeSelf)
+                    audio_settings.SetActive(false);
+            }
+        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
