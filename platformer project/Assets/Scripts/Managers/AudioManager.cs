@@ -12,6 +12,9 @@ public class AudioManager : MonoBehaviour
 
     public bool isMusicMuted = false;
     public bool isSfxMuted = false;
+
+    [SerializeField]
+    private AudioMenu am;
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +30,10 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
+        am.musicSlider.value = .5f;
+        am.sfxSlider.value = .5f;
+        sfxSource.gameObject.GetComponent<AudioSource>().volume = am.sfxSlider.value;
+        musicSoruce.gameObject.GetComponent<AudioSource>().volume = am.musicSlider.value;
         playMusic("bgm_mainMenu");
     }
 
