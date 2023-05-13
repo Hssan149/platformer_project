@@ -19,6 +19,7 @@ public class MainMenu : MonoBehaviour
     {
         string level = "level" + GameManager.getInstance().currentLevel;
         SceneManager.LoadScene(level);
+        AudioManager.Instance.playMusic("bgm_level1");
     }
 
     public void showLevels()

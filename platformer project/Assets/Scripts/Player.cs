@@ -128,6 +128,7 @@ public class Player : MonoBehaviour
         {
             transform.position = startPoint.transform.position;
             GameManager.getInstance().lives = 3;
+            AudioManager.Instance.stopMusic("bgm_level1");
         }
     }
 
