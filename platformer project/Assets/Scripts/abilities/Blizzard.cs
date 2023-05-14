@@ -5,8 +5,6 @@ using UnityEngine;
 public class Blizzard : MonoBehaviour
 {
     private bool test;
-    [SerializeField]
-    private GameObject shoot;
     private Animator anim;
     private SpriteRenderer sp;
     // Update is called once per frame
