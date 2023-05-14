@@ -3120,8 +3120,18 @@ MonoBehaviour:
   - name: bgm_mainMenu
     clip: {fileID: 8300000, guid: 489e3f81ff1ce844191555b3c0c4e338, type: 3}
   - name: bgm_level1
-    clip: {fileID: 8300000, guid: f8672bf738107484fbe2949c45beef54, type: 3}
-  sfx: []
+    clip: {fileID: 8300000, guid: d59fa531bbb08e04880db3a649f199ac, type: 3}
+  sfx:
+  - name: 'sword '
+    clip: {fileID: 8300000, guid: 96f7b8f36b2545548b3e3247147785b5, type: 3}
+  - name: Fire Ball out
+    clip: {fileID: 8300000, guid: c331ed8021abd2d40ad9f5e557052c8d, type: 3}
+  - name: Fire ball Explosion
+    clip: {fileID: 8300000, guid: 67ddec3f481f13845a32dae32b2f70e4, type: 3}
+  - name: Electric shock
+    clip: {fileID: 8300000, guid: bb07bfae4cef4c64eabb71225f100fff, type: 3}
+  - name: Ice spell
+    clip: {fileID: 8300000, guid: 78ee555a2ac0390438200bc7aed1d216, type: 3}
   musicSoruce: {fileID: 290924282}
   sfxSource: {fileID: 1655187346}
   isMusicMuted: 0
