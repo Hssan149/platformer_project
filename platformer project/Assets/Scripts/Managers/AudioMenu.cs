@@ -6,11 +6,10 @@ using UnityEngine.UI;
 
 public class AudioMenu : MonoBehaviour
 {
-
-    
+    //sliders refernce
     public Slider musicSlider;
     public Slider sfxSlider;
-    public void goBack()
+    public void goBack()//closed the audio settings menu
     {
         gameObject.SetActive(false);
     }
@@ -25,12 +24,12 @@ public class AudioMenu : MonoBehaviour
 
     private void Update()
     {
-        musicSlider.onValueChanged.AddListener((temp) =>
+        musicSlider.onValueChanged.AddListener((temp) => //change the value of the audio listener based on the slider value
         {
             AudioManager.Instance.musicSoruce.gameObject.GetComponent<AudioSource>().volume = temp;
             PlayerPrefs.SetFloat("bgmVol", temp);
         });
-        sfxSlider.onValueChanged.AddListener((temp) =>
+        sfxSlider.onValueChanged.AddListener((temp) =>//change the value of the audio listener based on the slider value
         {
             AudioManager.Instance.sfxSource.gameObject.GetComponent<AudioSource>().volume = temp;
             PlayerPrefs.SetFloat("sfxVol", temp);

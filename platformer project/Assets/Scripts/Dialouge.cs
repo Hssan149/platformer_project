@@ -6,21 +6,21 @@ using UnityEngine.SceneManagement;
 
 public class Dialouge : MonoBehaviour
 {
-    public TextMeshProUGUI tmpro;
-    public string[] lines;
+    public TextMeshProUGUI tmpro; //reference the text game obj
+    public string[] lines;//lines to be displayed on screen
     public float textSpeed;
-    private int index;
+    private int index;//index of current line
     // Start is called before the first frame update
     void Start()
     {
         tmpro.text = string.Empty;
-        startDialogue();
+        startDialogue(); //start displaying the text
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))//end current line and move to the next line when pressing space
         {
             if (tmpro.text == lines[index])
                 nextLine();
@@ -41,7 +41,7 @@ public class Dialouge : MonoBehaviour
 
     IEnumerator TypeLine()
     {
-        foreach(char c in lines[index].ToCharArray())
+        foreach(char c in lines[index].ToCharArray())//type the line on the screen letter by letter
         {
             tmpro.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -56,7 +56,7 @@ public class Dialouge : MonoBehaviour
             tmpro.text = string.Empty;
             StartCoroutine("TypeLine");
         }
-        else if(index == lines.Length - 1)
+        else if(index == lines.Length - 1)//when reaching the last line pressing space will start the first level
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
