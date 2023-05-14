@@ -39,7 +39,7 @@ public class FireBall : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground"||collision.gameObject.tag=="wall"||collision.gameObject.tag=="Enemy")
         {// on collision with ground destroy it and play explosion animation
             moving = false;
             gameObject.transform.localScale = new Vector3(3f, 3f, 0);//change size of fire ball object to scale its explosion animation.

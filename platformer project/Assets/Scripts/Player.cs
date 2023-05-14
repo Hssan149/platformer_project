@@ -66,8 +66,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI coins;
     [SerializeField]
-    private TextMeshProUGUI ability;
-    
+    private TextMeshProUGUI currentAbility;
     public GameObject[] hearts;
 
 
@@ -90,7 +89,7 @@ public class Player : MonoBehaviour
             attack();
             death();
             if(Input.GetKeyDown(KeyCode.C))
-            removeAbility();
+            discardAbility();
             if (haveAbility)
             { //abilites control
                 if (haveFireBall)
@@ -154,32 +153,35 @@ public class Player : MonoBehaviour
             GameManager.getInstance().coins_level++;
             coins.text = "Conis:" + GameManager.getInstance().coins_level;
         }
-        else if (collision.gameObject.tag=="win")
+        else if (collision.gameObject.tag == "win")
         {
             win();
         }
-        else if(collision.gameObject.tag=="abilityGem"&& !haveAbility)
+        else if (collision.gameObject.tag == "abilityGem" && !haveAbility)
         {
-            if(collision.gameObject.GetComponent<SpriteRenderer>().sprite==sprites[0])
+            if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[0])
             {
                 haveAbility = true;
                 canFireBall = true;
                 haveFireBall = true;
+                currentAbility.text = "Ability: Fire Ball";
                 Destroy(collision.gameObject);
             }
-            else if(collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[1])
+            else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[1])
             {
                 haveAbility = true;
                 canBlizzard = true;
                 haveBlizzard = true;
                 Destroy(collision.gameObject);
+                currentAbility.text = "Ability: Ice Blizzard";
             }
-            else if(collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[2])
+            else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[2])
             {
                 haveAbility = true;
                 canShock = true;
                 haveShock = true;
                 Destroy(collision.gameObject);
+                currentAbility.text = "Ability: Dark Bolt";
             }
             else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[3])
             {
@@ -187,8 +189,11 @@ public class Player : MonoBehaviour
                 canSpark = true;
                 haveSpark = true;
                 Destroy(collision.gameObject);
+                currentAbility.text = "Ability: Spark";
             }
         }
+        else if (collision.gameObject.tag == "Finish")
+            win();
     }
 
     //player movement and abilities start
@@ -242,15 +247,31 @@ public class Player : MonoBehaviour
 
     //Abilities section start
 
-    void removeAbility()
+    void discardAbility()
     {
         if(haveAbility)
         {
             haveAbility = false;
-            if(haveFireBall)
+            currentAbility.text = "Ability: none";
+            if (haveFireBall)
             {
                 haveFireBall = false;
                 canFireBall = false;
+            }
+            else if (haveBlizzard)
+            {
+                haveBlizzard = false;
+                canBlizzard = false;
+            }
+            else if (haveShock)
+            {
+                haveShock = false;
+                canShock = false;
+            }
+            else if (haveSpark)
+            {
+                haveSpark = false;
+                canSpark = false;
             }
         }
     }
@@ -369,8 +390,6 @@ public class Player : MonoBehaviour
         pause_menu.transform.GetChild(4).gameObject.SetActive(true);
         pause_menu.SetActive(true);
         paused = true;
-
-
     }
 
     //player state end

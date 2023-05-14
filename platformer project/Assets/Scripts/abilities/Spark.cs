@@ -46,4 +46,12 @@ public class Spark : MonoBehaviour
         print("nice");
         Destroy(gameObject);
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "wall" || collision.gameObject.tag == "Enemy")
+        {
+            Destroy(gameObject);
+        }
+    }
 }

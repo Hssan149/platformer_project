@@ -11,7 +11,10 @@ public class Gemscript : MonoBehaviour
 
     IEnumerator dispawn()
     {
-        yield return new WaitForSeconds(10f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        yield return new WaitForSeconds(9f);
         Destroy(gameObject);
     }
 }
