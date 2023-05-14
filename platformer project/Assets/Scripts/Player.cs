@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
 
     //components references
     private Animator anim;
-    private SpriteRenderer sp;
+    public static SpriteRenderer sp;
     private Rigidbody2D rb;
 
     //spawn points
@@ -28,15 +28,18 @@ public class Player : MonoBehaviour
     private GameObject shootingPoint;
     [SerializeField]
     private GameObject fireBall;
-    private bool haveFireBall=true;
-    private bool canFireBall=true;
+    private bool haveFireBall=false;
+    private bool canFireBall=false;
+    [SerializeField]
+    private Sprite[] sprites;
 
-
+    //menus references
     [SerializeField]
     private GameObject pause_menu;
     [SerializeField]
     private GameObject audio_settings;
 
+    //game stats
     public static bool paused = false;
     public static bool dead = false;
     public static bool won = false;
@@ -56,10 +59,12 @@ public class Player : MonoBehaviour
         if (!paused) 
         { 
             //player control section
-        move();
-        jump();
-        attack();
-        death();
+            move();
+            jump();
+            attack();
+            death();
+            if(Input.GetKeyDown(KeyCode.C))
+            removeAbility();
             if (haveAbility)
             { //abilites control
                 if (haveFireBall)
@@ -119,6 +124,17 @@ public class Player : MonoBehaviour
         {
             win();
         }
+        else if(collision.gameObject.tag=="abilityGem"&& !haveAbility)
+        {
+            if(collision.gameObject.GetComponent<SpriteRenderer>().sprite==sprites[0])
+            {
+                print(collision.gameObject.name);
+                haveAbility = true;
+                canFireBall = true;
+                haveFireBall = true;
+                Destroy(collision.gameObject);
+            }
+        }
     }
 
     //player movement and abilities start
@@ -171,11 +187,29 @@ public class Player : MonoBehaviour
     }
 
     //Abilities section start
+
+    void removeAbility()
+    {
+        if(haveAbility)
+        {
+            haveAbility = false;
+            if(haveFireBall)
+            {
+                haveFireBall = false;
+                canFireBall = false;
+            }
+        }
+    }
+
     void shootFireBall()
     {
         if (canFireBall && Input.GetKeyDown(KeyCode.Z))
         {
             canFireBall = false;
+            if (sp.flipX == true)
+                shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
+            else
+                shootingPoint.transform.position = transform.position+ new Vector3(1.5f, 0f, 0f);
             Instantiate(fireBall, transform.position, Quaternion.identity);
             StartCoroutine("fireBallCoolDown");
         }

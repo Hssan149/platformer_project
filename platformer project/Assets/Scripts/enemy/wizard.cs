@@ -19,6 +19,8 @@ public class wizard : MonoBehaviour
     private LayerMask playerLayer;
     private float CooldownTimer = Mathf.Infinity;
 
+    [SerializeField]
+    private GameObject fireGem;
     private Animator anim;
 
     private void Awake()
@@ -57,4 +59,14 @@ public class wizard : MonoBehaviour
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag=="attack")
+        {
+            Instantiate(fireGem, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
 }

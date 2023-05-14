@@ -7,18 +7,33 @@ public class FireBall : MonoBehaviour
     
     private float speed = 7.5f;
     private bool moving = true;
+    private bool test;
     //animation change
     private Animator anim;
+    private SpriteRenderer sp;
     private void Start()
     {
         anim = GetComponent<Animator>();
+        sp = GetComponent<SpriteRenderer>();
+        test = Player.sp.flipX;
     }
     void Update()
     {
         if(moving) { //moving the fire ball
-        Vector2 temp = transform.position;
-        temp.x += speed * Time.deltaTime;
-        transform.position = temp;
+            if (test==false)
+            {
+                sp.flipX = false;
+                Vector2 temp = transform.position;
+                temp.x += speed * Time.deltaTime;
+                transform.position = temp;
+            }
+            else
+            {
+                sp.flipX = true;
+                Vector2 temp = transform.position;
+                temp.x -= speed * Time.deltaTime;
+                transform.position = temp;
+            }
         }
     }
 
