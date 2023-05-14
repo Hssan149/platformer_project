@@ -15,11 +15,22 @@ public class MainMenu : MonoBehaviour
         if(levelsMenu.activeSelf)
             levelsMenu.SetActive(false);
     }
-    public void PlayGame()
+
+    public void newGame()
     {
-        string level = "level" + GameManager.getInstance().currentLevel;
-        SceneManager.LoadScene(level);
-        AudioManager.Instance.playMusic("bgm_level1");
+        GameManager.getInstance().newGame = true;
+        PlayerPrefs.SetInt("newGame", (1));
+        PlayerPrefs.SetInt("currentLevel", 1);
+        SceneManager.LoadScene("CutScene");
+    }
+
+    public void continueGame()
+    {
+        if (PlayerPrefs.GetInt("newGame") ==1) {
+            string level = "level" + PlayerPrefs.GetInt("currentLevel");
+            SceneManager.LoadScene(level);
+            AudioManager.Instance.playMusic("bgm_level1");
+        }
     }
 
     public void showLevels()

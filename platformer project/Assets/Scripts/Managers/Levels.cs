@@ -7,7 +7,7 @@ public class Levels : MonoBehaviour
 {
     public void goBack ()
     {
-        GameObject.FindGameObjectWithTag("levelsMenu").SetActive(false);
+        gameObject.SetActive(false);
     }
 
     public void startLevel1()
@@ -38,5 +38,6 @@ public class Levels : MonoBehaviour
     {
         if (GameManager.getInstance().levelCleared[4])
             SceneManager.LoadScene("level5");
+        
     }
 }

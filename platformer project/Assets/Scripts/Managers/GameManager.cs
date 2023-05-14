@@ -3,22 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     private static GameManager instance;
-
+    
     
 
     //level managment
     public int currentLevel = 1;
     public bool[] levelCleared;//changes the index of each level to true to unlock it in the levels menu
     public int lives = 3;
+    public bool newGame = false;
 
     public int coins = 0;
     public int levelCoins; //number of coins in a level.
 
-
+    
+    
 
     public static GameManager getInstance()
     {
@@ -49,7 +52,13 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+       
 
+    }
+
+    private void Update()
+    {
+        
     }
 
 }

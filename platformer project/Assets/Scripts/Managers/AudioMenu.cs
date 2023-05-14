@@ -12,13 +12,15 @@ public class AudioMenu : MonoBehaviour
     public Slider sfxSlider;
     public void goBack()
     {
-        GameObject.FindGameObjectWithTag("levelsMenu").SetActive(false);
+        gameObject.SetActive(false);
     }
 
     private void Awake()
     {
-        musicSlider.value = .5f;
+        musicSlider.value = PlayerPrefs.GetFloat("bgmVol");
         AudioManager.Instance.musicSoruce.gameObject.GetComponent<AudioSource>().volume = musicSlider.value;
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
+        AudioManager.Instance.sfxSource.gameObject.GetComponent<AudioSource>().volume = sfxSlider.value;
     }
 
     private void Update()
@@ -26,6 +28,12 @@ public class AudioMenu : MonoBehaviour
         musicSlider.onValueChanged.AddListener((temp) =>
         {
             AudioManager.Instance.musicSoruce.gameObject.GetComponent<AudioSource>().volume = temp;
+            PlayerPrefs.SetFloat("bgmVol", temp);
+        });
+        sfxSlider.onValueChanged.AddListener((temp) =>
+        {
+            AudioManager.Instance.sfxSource.gameObject.GetComponent<AudioSource>().volume = temp;
+            PlayerPrefs.SetFloat("sfxVol", temp);
         });
     }
 

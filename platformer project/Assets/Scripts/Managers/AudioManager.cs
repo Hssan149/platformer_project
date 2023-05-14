@@ -30,8 +30,8 @@ public class AudioManager : MonoBehaviour
 
     private void Start()
     {
-        am.musicSlider.value = .5f;
-        am.sfxSlider.value = .5f;
+        am.musicSlider.value = PlayerPrefs.GetFloat("bgmVol");
+        am.sfxSlider.value = PlayerPrefs.GetFloat("sfxVol");
         sfxSource.gameObject.GetComponent<AudioSource>().volume = am.sfxSlider.value;
         musicSoruce.gameObject.GetComponent<AudioSource>().volume = am.musicSlider.value;
         playMusic("bgm_mainMenu");
