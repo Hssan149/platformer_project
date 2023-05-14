@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    //player stats 
     public float moveSpeed = 4f;
     public float jumpForce = 9.75f;
     private bool canAttack = true;
     public bool isGrounded = false;
+
+    //components references
     private Animator anim;
     private SpriteRenderer sp;
     private Rigidbody2D rb;
@@ -20,12 +23,14 @@ public class Player : MonoBehaviour
     private GameObject spawnPoint;
 
     //abilities
+    private bool haveAbility = false;
     [SerializeField]
     private GameObject shootingPoint;
-    private bool haveFireBall=true;
-    private bool canFireBall=true;
     [SerializeField]
     private GameObject fireBall;
+    private bool haveFireBall=true;
+    private bool canFireBall=true;
+
 
     [SerializeField]
     private GameObject pause_menu;
@@ -50,16 +55,22 @@ public class Player : MonoBehaviour
     {
         if (!paused) 
         { 
+            //player control section
         move();
         jump();
         attack();
         death();
-        if (haveFireBall)
-            shootFireBall();
+            if (haveAbility)
+            { //abilites control
+                if (haveFireBall)
+                    shootFireBall();
+            }
         }
+
+        
         if (Input.GetKeyDown(KeyCode.Escape)&&!dead&&!won)
-        {
-            if (!paused)
+        {//pausing the game
+            if (!paused)//pause
             {
                 Time.timeScale = 0;
                 if(!pause_menu.activeSelf)
@@ -67,7 +78,7 @@ public class Player : MonoBehaviour
                 paused = !paused;
             }
             else
-            {
+            {//unpause
                 Time.timeScale = 1;
                 if(pause_menu.activeSelf)
                 pause_menu.SetActive(false);
@@ -78,14 +89,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)//collision handling
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground")//only jump when on ground
         {
             isGrounded = true;
             anim.SetBool("jumping", false);
         }
-        else if (collision.gameObject.tag == "spikes")
+        else if (collision.gameObject.tag == "spikes")//lose lives when hitting hazards
         {
             if (GameManager.getInstance().lives > 0)
             {
@@ -97,16 +108,22 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "spawnPoint")
+        if (collision.gameObject.tag == "spawnPoint")//change spawn point on collision
             spawnPoint = collision.gameObject;
-        else if (collision.gameObject.tag == "coin")
+        else if (collision.gameObject.tag == "coin")//pick up collectables
         {
             Destroy(collision.gameObject);
             GameManager.getInstance().coins++;
         }
+        else if (collision.gameObject.tag=="win")
+        {
+            win();
+        }
     }
 
-    void move()
+    //player movement and abilities start
+
+    void move()//move horizontally
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         anim.SetFloat("speed", Mathf.Abs(horizontalInput));
@@ -153,6 +170,29 @@ public class Player : MonoBehaviour
         canAttack = true;
     }
 
+    //Abilities section start
+    void shootFireBall()
+    {
+        if (canFireBall && Input.GetKeyDown(KeyCode.Z))
+        {
+            canFireBall = false;
+            Instantiate(fireBall, transform.position, Quaternion.identity);
+            StartCoroutine("fireBallCoolDown");
+        }
+    }
+
+    IEnumerator fireBallCoolDown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canFireBall = true;
+    }
+
+    //Abilities section end
+
+    //player movement and abilities end
+
+
+    //player state start
     void death()
     {
         if (GameManager.getInstance().lives == 0)
@@ -175,22 +215,13 @@ public class Player : MonoBehaviour
         won = true;
         pause_menu.transform.GetChild(0).gameObject.SetActive(false);
         pause_menu.transform.GetChild(4).gameObject.SetActive(true);
+        pause_menu.SetActive(true);
+        paused = true;
+
 
     }
 
-    void shootFireBall()
-    {
-        if(canFireBall && Input.GetKeyDown(KeyCode.Z))
-        {
-            canFireBall = false;
-            Instantiate(fireBall, transform.position, Quaternion.identity);
-            StartCoroutine("fireBallCoolDown");
-        }
-    }
+    //player state end
+
     
-    IEnumerator fireBallCoolDown()
-    {
-        yield return new WaitForSeconds(1.5f);
-        canFireBall = true;
-    }
 }

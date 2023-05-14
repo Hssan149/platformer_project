@@ -7,8 +7,6 @@ public class In_Game_Menu : MonoBehaviour
 {
     [SerializeField]
     private GameObject AudioMenu;
-    
-    
 
     public void resume()
     {
@@ -17,12 +15,13 @@ public class In_Game_Menu : MonoBehaviour
         gameObject.SetActive(false);
 
     }
+
     public void restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
-        Player.paused = !Player.paused;
-        Player.dead = !Player.dead;
+        Player.paused = false;
+        Player.dead = false;
         AudioManager.Instance.playMusic("bgm_level1");
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -34,8 +33,8 @@ public class In_Game_Menu : MonoBehaviour
     {
         SceneManager.LoadScene("MainMenu");
         Time.timeScale = 1;
-        Player.paused = !Player.paused;
-        Player.dead = !Player.dead;
+        Player.paused = false;
+        Player.dead = false;
         AudioManager.Instance.playMusic("bgm_mainMenu");
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
@@ -45,6 +44,8 @@ public class In_Game_Menu : MonoBehaviour
     public void nextLevel()
     {
         Time.timeScale = 1;
+        Player.paused = false;
+        Player.won = false;
         //load next scene
     }
 
