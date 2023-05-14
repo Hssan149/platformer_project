@@ -23,6 +23,7 @@ TagManager:
   - shoot
   - fireBall
   - blizzard
+  - shock
   layers:
   - Default
   - TransparentFX

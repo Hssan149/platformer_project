@@ -5,7 +5,6 @@ using UnityEngine;
 public class Blizzard : MonoBehaviour
 {
     private bool test;
-    private Animator anim;
     private SpriteRenderer sp;
     // Update is called once per frame
     private void Start()

@@ -36,6 +36,11 @@ public class Player : MonoBehaviour
     private GameObject blizzard;
     private bool haveBlizzard = false;
     private bool canBlizzard = false;
+    //electric shock
+    [SerializeField]
+    private GameObject shock;
+    private bool haveShock = false;
+    private bool canShock = false;
     //ability gems
     [SerializeField]
     private Sprite[] sprites;
@@ -87,6 +92,8 @@ public class Player : MonoBehaviour
                     shootFireBall();
                 else if (haveBlizzard)
                     shootBlizzard();
+                else if (haveShock)
+                    shootShock();               
             }
         }
 
@@ -109,7 +116,7 @@ public class Player : MonoBehaviour
                 if (audio_settings.activeSelf)
                     audio_settings.SetActive(false);
             }
-        }
+        }//game pause
     }
 
     private void OnCollisionEnter2D(Collision2D collision)//collision handling
@@ -158,6 +165,14 @@ public class Player : MonoBehaviour
                 haveAbility = true;
                 canBlizzard = true;
                 haveBlizzard = true;
+                Destroy(collision.gameObject);
+            }
+            else if(collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[2])
+            {
+                print("nice");
+                haveAbility = true;
+                canShock = true;
+                haveShock = true;
                 Destroy(collision.gameObject);
             }
         }
@@ -267,6 +282,27 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         canBlizzard = true;
+    }
+
+    //electric shock
+    void shootShock()
+    {
+        if (canShock && Input.GetKeyDown(KeyCode.Z))
+        {
+            canShock = false;
+            if (sp.flipX == true)
+                shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
+            else
+                shootingPoint.transform.position = transform.position + new Vector3(1.5f, 0f, 0f);
+            Instantiate(shock, transform.position, Quaternion.identity);
+            StartCoroutine("shockCoolDown");
+        }
+    }
+
+    IEnumerator shockCoolDown()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canShock = true;
     }
 
     //Abilities section end
