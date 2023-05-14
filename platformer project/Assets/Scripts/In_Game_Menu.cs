@@ -7,6 +7,8 @@ public class In_Game_Menu : MonoBehaviour
 {
     [SerializeField]
     private GameObject AudioMenu;
+    [SerializeField]
+    private GameObject player;
 
     public void resume()
     {
@@ -25,6 +27,8 @@ public class In_Game_Menu : MonoBehaviour
         AudioManager.Instance.playMusic("bgm_level1");
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
+        foreach (GameObject n in player.GetComponent<Player>().hearts)
+            n.SetActive(true);
         //reset gameManager
 
     }

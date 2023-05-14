@@ -41,6 +41,11 @@ public class Player : MonoBehaviour
     private GameObject shock;
     private bool haveShock = false;
     private bool canShock = false;
+    //spark
+    [SerializeField]
+    private GameObject spark;
+    private bool haveSpark = false;
+    private bool canSpark= false;
     //ability gems
     [SerializeField]
     private Sprite[] sprites;
@@ -62,8 +67,8 @@ public class Player : MonoBehaviour
     private TextMeshProUGUI coins;
     [SerializeField]
     private TextMeshProUGUI ability;
-    [SerializeField]
-    private GameObject[] hearts;
+    
+    public GameObject[] hearts;
 
 
     void Start()
@@ -93,7 +98,9 @@ public class Player : MonoBehaviour
                 else if (haveBlizzard)
                     shootBlizzard();
                 else if (haveShock)
-                    shootShock();               
+                    shootShock();
+                else if (haveSpark)
+                    shootSpark();
             }
         }
 
@@ -169,10 +176,16 @@ public class Player : MonoBehaviour
             }
             else if(collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[2])
             {
-                print("nice");
                 haveAbility = true;
                 canShock = true;
                 haveShock = true;
+                Destroy(collision.gameObject);
+            }
+            else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[3])
+            {
+                haveAbility = true;
+                canSpark = true;
+                haveSpark = true;
                 Destroy(collision.gameObject);
             }
         }
@@ -303,6 +316,27 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         canShock = true;
+    }
+
+    //spark
+    void shootSpark()
+    {
+        if (canSpark && Input.GetKeyDown(KeyCode.Z))
+        {
+            canSpark = false;
+            if (sp.flipX == true)
+                shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
+            else
+                shootingPoint.transform.position = transform.position + new Vector3(1.5f, 0f, 0f);
+            Instantiate(spark, transform.position, Quaternion.identity);
+            StartCoroutine("sparkCoolDown");
+        }
+    }
+
+    IEnumerator sparkCoolDown()
+    {
+        yield return new WaitForSeconds(1.8f);
+        canSpark = true;
     }
 
     //Abilities section end
