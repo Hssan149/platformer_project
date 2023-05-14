@@ -1053,7 +1053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A Deal With The Devil
+  m_text: The Devils' Contract
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7a2ab2a0bdeb3ff498a25954409b61d9, type: 2}
   m_sharedMaterial: {fileID: 5743140038522473483, guid: 7a2ab2a0bdeb3ff498a25954409b61d9, type: 2}
@@ -1062,8 +1062,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190335
+  m_fontColor: {r: 1, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3118,7 +3118,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   music:
   - name: bgm_mainMenu
-    clip: {fileID: 8300000, guid: ec1c735512cd15f4b8b77b6b9d86e67c, type: 3}
+    clip: {fileID: 8300000, guid: 489e3f81ff1ce844191555b3c0c4e338, type: 3}
   - name: bgm_level1
     clip: {fileID: 8300000, guid: f8672bf738107484fbe2949c45beef54, type: 3}
   sfx: []
