@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public int lives = 3;
     public bool newGame = false;
 
+    //collectables
     public int coins = 0;
     public int levelCoins; //number of coins in a level.
 

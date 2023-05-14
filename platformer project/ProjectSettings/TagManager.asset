@@ -18,11 +18,12 @@ TagManager:
   - attack
   - spawnPoint
   - coin
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
   - 

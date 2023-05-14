@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class FireBall : MonoBehaviour
 {
+    
     private float speed = 7.5f;
     private bool moving = true;
-    // Update is called once per frame
-
+    //animation change
     private Animator anim;
     private void Start()
     {
@@ -15,7 +15,7 @@ public class FireBall : MonoBehaviour
     }
     void Update()
     {
-        if(moving) { 
+        if(moving) { //moving the fire ball
         Vector2 temp = transform.position;
         temp.x += speed * Time.deltaTime;
         transform.position = temp;
@@ -25,10 +25,10 @@ public class FireBall : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Ground")
-        {
+        {// on collision with ground destroy it and play explosion animation
             moving = false;
-            gameObject.transform.localScale = new Vector3(3f, 3f, 0);
-            anim.SetBool("destroy", true);
+            gameObject.transform.localScale = new Vector3(3f, 3f, 0);//change size of fire ball object to scale its explosion animation.
+            anim.SetBool("destroy", true);//play explosion animation
             StartCoroutine("wait");
             
         }
@@ -36,7 +36,7 @@ public class FireBall : MonoBehaviour
 
     IEnumerator wait()
     {
-        yield return new WaitForSeconds(.3f);
+        yield return new WaitForSeconds(.3f); //wait to play anim before destroying the object
         Destroy(gameObject);
     }
 }
