@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public bool newGame = false;
 
     //collectables
-    public int coins = 0;
+    public int coins_level = 0;
     public int levelCoins; //number of coins in a level.
 
     

@@ -1,8 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-
+using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -25,13 +25,21 @@ public class Player : MonoBehaviour
     //abilities
     private bool haveAbility = false;
     [SerializeField]
-    private GameObject shootingPoint;
+         GameObject shootingPoint;
+    //fire ball
     [SerializeField]
     private GameObject fireBall;
     private bool haveFireBall=false;
     private bool canFireBall=false;
+    //ice blizzard
+    [SerializeField]
+    private GameObject blizzard;
+    private bool haveBlizzard = false;
+    private bool canBlizzard = false;
+    //ability gems
     [SerializeField]
     private Sprite[] sprites;
+
 
     //menus references
     [SerializeField]
@@ -43,6 +51,14 @@ public class Player : MonoBehaviour
     public static bool paused = false;
     public static bool dead = false;
     public static bool won = false;
+
+    //UI
+    [SerializeField]
+    private TextMeshProUGUI coins;
+    [SerializeField]
+    private TextMeshProUGUI ability;
+    [SerializeField]
+    private GameObject[] hearts;
 
 
     void Start()
@@ -69,6 +85,8 @@ public class Player : MonoBehaviour
             { //abilites control
                 if (haveFireBall)
                     shootFireBall();
+                else if (haveBlizzard)
+                    shootBlizzard();
             }
         }
 
@@ -106,6 +124,7 @@ public class Player : MonoBehaviour
             if (GameManager.getInstance().lives > 0)
             {
                 GameManager.getInstance().lives--;
+                hearts[GameManager.getInstance().lives].SetActive(false);
                 transform.position = spawnPoint.transform.position;
             }
         }
@@ -118,7 +137,8 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.tag == "coin")//pick up collectables
         {
             Destroy(collision.gameObject);
-            GameManager.getInstance().coins++;
+            GameManager.getInstance().coins_level++;
+            coins.text = "Conis:" + GameManager.getInstance().coins_level;
         }
         else if (collision.gameObject.tag=="win")
         {
@@ -128,10 +148,16 @@ public class Player : MonoBehaviour
         {
             if(collision.gameObject.GetComponent<SpriteRenderer>().sprite==sprites[0])
             {
-                print(collision.gameObject.name);
                 haveAbility = true;
                 canFireBall = true;
                 haveFireBall = true;
+                Destroy(collision.gameObject);
+            }
+            else if(collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[1])
+            {
+                haveAbility = true;
+                canBlizzard = true;
+                haveBlizzard = true;
                 Destroy(collision.gameObject);
             }
         }
@@ -201,6 +227,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    //fire ball
     void shootFireBall()
     {
         if (canFireBall && Input.GetKeyDown(KeyCode.Z))
@@ -219,6 +246,27 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1.5f);
         canFireBall = true;
+    }
+
+    //blizzard
+    void shootBlizzard()
+    {
+        if (canBlizzard && Input.GetKeyDown(KeyCode.Z))
+        {
+            canBlizzard = false;
+            if (sp.flipX == true)
+                shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
+            else
+                shootingPoint.transform.position = transform.position + new Vector3(1.5f, 0f, 0f);
+            Instantiate(blizzard, transform.position, Quaternion.identity);
+            StartCoroutine("blizzardCoolDown");
+        }
+    }
+
+    IEnumerator blizzardCoolDown ()
+    {
+        yield return new WaitForSeconds(1.5f);
+        canBlizzard = true;
     }
 
     //Abilities section end

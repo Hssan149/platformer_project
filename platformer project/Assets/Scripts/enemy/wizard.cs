@@ -67,6 +67,16 @@ public class wizard : MonoBehaviour
             Instantiate(fireGem, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        else if (collision.gameObject.tag == "fireBall")
+        {
+            Instantiate(fireGem, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        else if (collision.gameObject.tag == "blizzard")
+        {
+            Instantiate(fireGem, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
 }

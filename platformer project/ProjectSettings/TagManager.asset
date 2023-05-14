@@ -20,6 +20,9 @@ TagManager:
   - coin
   - Enemy
   - abilityGem
+  - shoot
+  - fireBall
+  - blizzard
   layers:
   - Default
   - TransparentFX
