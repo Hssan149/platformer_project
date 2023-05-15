@@ -419,7 +419,7 @@ MonoBehaviour:
   m_fontColor32:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColor: {r: 0, g: 0.80684304, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -578,32 +578,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tmpro: {fileID: 1149662469}
   lines:
-  - "Long time ago in the world of Afathis, the great Warrior of kreahola \u201CLangulus
-    hassori\u201D defeated the Lord of demons \u201CZogras\u201D"
-  - and with that, peace, and relief spreaded out in the empire
-  - by defeating Zogras, the life crystal was retrieved and kept safe to keep the
-    balance set in the world and all demons were sent back and locked up in the underground
-    world
-  - "Mr. Thomas T. William \u201CMaster of the Magic\u201D was Langulus best friend
-    and most trusted counselor in the empire, him and Langulus had hundreds of fights
-    together"
-  - and by the end of the battle between humans and demons, Langulus Hassori has
-    been named the Grand Master in the empire, and of course, become the strongest
-    warrior in the empire
-  - After many years of peace in the empire, Greed and envy has driven Mr. Thomas
-    to betray his empire, council, people of Kreahola, and especially, his friend, 
-    langulus, and by killing Langulus and stealing the crystal of life
-  - Thomas has opened the gates of underworld and demons who was locked up are now
-    roaming the world, and so chaos, destruction, and many deaths covered the world
-  - In the Underworld, Langulus wake up...
-  - Langulus was driven by revenge, anger, and pain of his best friend betrayal
-  - "and so Zogras saw that a great opportunity to use Langulus for his ambitions,
-    so he offered him a deal that he can\u2019t refuse"
-  - In exchange of sending him again to the world of Afathis, and taking back his
-    revenge, Langulus has the mission to find crystal of life and giving it to Zogras
-  - Langulus powers will be weaker than before he died, but Zogras will help him
-    through his journey to take back what was taken from him
-  - "And then the story BEGINS\u2026"
+  - In the world of Afathis, The great warriar Langulus Hassori defeated the Lord
+    of demons Zogras with the help of his best friend Mr. Thomas T. Williams
+  - After the war ended and the Crystal of Life was retrieved, peace and relief spreaded
+    in the empire, zogras and the demons are now locked up in the underworld
+  - Many Years later, Greed and envy has driven Mr. Thomas to  betray Langulus Hassori
+    and spread chaos in the world
+  - Langulus is now dead and demons are now roaming in the world
+  - Zogras is now using Langulus that he's now full of anger and revenge, so he's
+    back in the world weaker than before but Zogras is helping him take the Crystal
+    of Life back
+  - And then the story BEGINS...
   - press space to continue...
   textSpeed: 0.07
 --- !u!1 &2080832366
