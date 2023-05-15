@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-       
+        PlayerPrefs.SetInt("level" + 1, 1);
 
     }
 

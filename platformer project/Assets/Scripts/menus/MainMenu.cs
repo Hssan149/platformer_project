@@ -22,6 +22,8 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("newGame", (1));
         PlayerPrefs.SetInt("currentLevel", 1);
         SceneManager.LoadScene("CutScene");
+        PlayerPrefs.SetInt("level" + 2, 0);
+        PlayerPrefs.SetInt("level" + 3, 0);
     }
 
     public void continueGame()

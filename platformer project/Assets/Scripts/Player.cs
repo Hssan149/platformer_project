@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -398,6 +399,11 @@ public class Player : MonoBehaviour
         pause_menu.SetActive(true);
         paused = true;
         winText.SetActive(true);
+        if (SceneManager.GetActiveScene().name == "level2")
+            PlayerPrefs.SetInt("level" + 2, 1);
+        else if (SceneManager.GetActiveScene().name == "level3")
+            PlayerPrefs.SetInt("level" + 3, 0);
+
     }
 
     //player state end
