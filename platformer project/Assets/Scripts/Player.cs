@@ -232,6 +232,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.X)&&canAttack)
         {
+            AudioManager.Instance.playSfx("sword");
             canAttack = false;
             GameObject Attack = gameObject.transform.GetChild(0).gameObject;
             Attack.GetComponent<BoxCollider2D>().enabled = true;
@@ -289,6 +290,7 @@ public class Player : MonoBehaviour
     {
         if (canFireBall && Input.GetKeyDown(KeyCode.Z))
         {
+            AudioManager.Instance.playSfx("Fire Ball out");
             canFireBall = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
@@ -310,6 +312,7 @@ public class Player : MonoBehaviour
     {
         if (canBlizzard && Input.GetKeyDown(KeyCode.Z))
         {
+            AudioManager.Instance.playSfx("Ice spell");
             canBlizzard = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
@@ -331,6 +334,7 @@ public class Player : MonoBehaviour
     {
         if (canShock && Input.GetKeyDown(KeyCode.Z))
         {
+            AudioManager.Instance.playSfx("Electric shock");
             canShock = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
@@ -352,6 +356,7 @@ public class Player : MonoBehaviour
     {
         if (canSpark && Input.GetKeyDown(KeyCode.Z))
         {
+            
             canSpark = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);

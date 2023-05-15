@@ -2840,10 +2840,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: 1
-  levelCleared: 0100000000
   lives: 3
   newGame: 0
-  coins: 0
+  coins_level: 0
   levelCoins: 0
 --- !u!4 &900812556
 Transform:
@@ -3121,6 +3120,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 489e3f81ff1ce844191555b3c0c4e338, type: 3}
   - name: bgm_level1
     clip: {fileID: 8300000, guid: d59fa531bbb08e04880db3a649f199ac, type: 3}
+  - name: bgm_level2
+    clip: {fileID: 8300000, guid: d679d6903c2873140ad969ff921b793a, type: 3}
   sfx:
   - name: 'sword '
     clip: {fileID: 8300000, guid: 96f7b8f36b2545548b3e3247147785b5, type: 3}
