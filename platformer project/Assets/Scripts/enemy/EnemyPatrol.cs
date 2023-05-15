@@ -9,11 +9,15 @@ public class EnemyPatrol : MonoBehaviour
     private Transform transform;
     private float startX;  // starting x position of the enemy
 
+    [SerializeField]
+    private GameObject skeleton;
+
     // Start is called before the first frame update
     void Start()
     {
         transform = GetComponent<Transform>();  // get the transform component
         startX = transform.position.x;  // save the starting x position
+        skeleton.gameObject.GetComponent<Animator>().SetBool("moving", true);
     }
 
     // Update is called once per frame

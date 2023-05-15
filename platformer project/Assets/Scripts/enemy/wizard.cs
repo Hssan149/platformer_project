@@ -21,7 +21,7 @@ public class wizard : MonoBehaviour
 
     [SerializeField]
     private GameObject fireGem;
-    private Animator anim;
+    public Animator anim;
 
     private void Awake()
     {
@@ -62,14 +62,20 @@ public class wizard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="attack"|| collision.gameObject.tag == "fireBall"
-            || collision.gameObject.tag == "blizzard"|| collision.gameObject.tag=="shock"
-            ||collision.gameObject.tag=="spark")
+        if (collision.gameObject.tag == "attack" || collision.gameObject.tag == "fireBall"
+            || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
+            || collision.gameObject.tag == "spark")
         {
             Instantiate(fireGem, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            anim.SetBool("moving",false);
+            anim.SetTrigger("die");
+            StartCoroutine("dead");
         }
-        
-    }
 
+    }
+    IEnumerator dead()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Destroy(gameObject);
+    }
 }

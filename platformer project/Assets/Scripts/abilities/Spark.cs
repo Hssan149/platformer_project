@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spark : MonoBehaviour
 {
-    private float speed = 4f;
+    private float speed = 6f;
     private bool test;
     // Start is called before the first frame update
     void Start()
@@ -31,25 +31,19 @@ public class Spark : MonoBehaviour
     }
     IEnumerator damage()
     {
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(.6f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        yield return new WaitForSeconds(.4f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(.6f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        yield return new WaitForSeconds(.4f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = false;
-        yield return new WaitForSeconds(.6f);
-        gameObject.GetComponent<CircleCollider2D>().enabled = true;
-        yield return new WaitForSeconds(.4f);
-        print("nice");
+        for(int i=0;i<3;i++)
+        {
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            yield return new WaitForSeconds(.6f);
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
+            yield return new WaitForSeconds(.4f);
+        }
         Destroy(gameObject);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "wall" || collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Ground" || collision.gameObject.tag == "wall")
         {
             Destroy(gameObject);
         }

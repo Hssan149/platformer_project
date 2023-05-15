@@ -68,6 +68,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI currentAbility;
     public GameObject[] hearts;
+    public GameObject winText;
 
 
     void Start()
@@ -88,7 +89,7 @@ public class Player : MonoBehaviour
             jump();
             attack();
             death();
-            if(Input.GetKeyDown(KeyCode.C))
+            if(Input.GetKeyDown(KeyCode.V))
             discardAbility();
             if (haveAbility)
             { //abilites control
@@ -102,8 +103,6 @@ public class Player : MonoBehaviour
                     shootSpark();
             }
         }
-
-        
         if (Input.GetKeyDown(KeyCode.Escape)&&!dead&&!won)
         {//pausing the game
             if (!paused)//pause
@@ -125,6 +124,8 @@ public class Player : MonoBehaviour
         }//game pause
     }
 
+
+    //collision handling start
     private void OnCollisionEnter2D(Collision2D collision)//collision handling
     {
         if (collision.gameObject.tag == "Ground")//only jump when on ground
@@ -153,11 +154,13 @@ public class Player : MonoBehaviour
             GameManager.getInstance().coins_level++;
             coins.text = "Conis:" + GameManager.getInstance().coins_level;
         }
-        else if (collision.gameObject.tag == "win")
-        {
+        else if (collision.gameObject.tag == "Finish")
             win();
-        }
-        else if (collision.gameObject.tag == "abilityGem" && !haveAbility)
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "abilityGem" && !haveAbility &&Input.GetKey(KeyCode.C))
         {
             if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[0])
             {
@@ -192,9 +195,9 @@ public class Player : MonoBehaviour
                 currentAbility.text = "Ability: Spark";
             }
         }
-        else if (collision.gameObject.tag == "Finish")
-            win();
     }
+
+    //collision handling end
 
     //player movement and abilities start
 
@@ -356,7 +359,7 @@ public class Player : MonoBehaviour
 
     IEnumerator sparkCoolDown()
     {
-        yield return new WaitForSeconds(1.8f);
+        yield return new WaitForSeconds(2.5f);
         canSpark = true;
     }
 
@@ -390,6 +393,7 @@ public class Player : MonoBehaviour
         pause_menu.transform.GetChild(4).gameObject.SetActive(true);
         pause_menu.SetActive(true);
         paused = true;
+        winText.SetActive(true);
     }
 
     //player state end
