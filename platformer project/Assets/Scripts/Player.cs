@@ -140,6 +140,7 @@ public class Player : MonoBehaviour
                 GameManager.getInstance().lives--;
                 hearts[GameManager.getInstance().lives].SetActive(false);
                 transform.position = spawnPoint.transform.position;
+                
             }
         }
     }
@@ -147,12 +148,15 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "spawnPoint")//change spawn point on collision
+        {
             spawnPoint = collision.gameObject;
+            print(spawnPoint.name);
+        }
         else if (collision.gameObject.tag == "coin")//pick up collectables
         {
             Destroy(collision.gameObject);
             GameManager.getInstance().coins_level++;
-            coins.text = "Conis:" + GameManager.getInstance().coins_level;
+            coins.text = "X " + GameManager.getInstance().coins_level;
         }
         else if (collision.gameObject.tag == "Finish")
             win();

@@ -24,7 +24,7 @@ public class In_Game_Menu : MonoBehaviour
         Time.timeScale = 1;
         Player.paused = false;
         Player.dead = false;
-        AudioManager.Instance.playMusic("bgm_level1");
+        AudioManager.Instance.playMusic("bgm_level1");  
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         foreach (GameObject n in player.GetComponent<Player>().hearts)

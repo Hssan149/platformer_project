@@ -29,5 +29,6 @@ public class EnemyPatrol : MonoBehaviour
         // update the enemy position
         Vector3 newPosition = new Vector3(newX, transform.position.y, transform.position.z);
         transform.position = newPosition;
+        
     }
 }

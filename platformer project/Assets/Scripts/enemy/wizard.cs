@@ -42,7 +42,11 @@ public class wizard : MonoBehaviour
             {
                 CooldownTimer = 0;
                 anim.SetTrigger("attack");
+                anim.SetBool("moving", false);
             }
+        }else
+        {
+            anim.SetBool("moving", true);
         }
        
         
@@ -75,7 +79,7 @@ public class wizard : MonoBehaviour
     }
     IEnumerator dead()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(1f);
         Destroy(gameObject);
     }
 }
