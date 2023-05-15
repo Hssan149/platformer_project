@@ -62,21 +62,14 @@ public class wizard : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="attack")
+        if(collision.gameObject.tag=="attack"|| collision.gameObject.tag == "fireBall"
+            || collision.gameObject.tag == "blizzard"|| collision.gameObject.tag=="shock"
+            ||collision.gameObject.tag=="spark")
         {
             Instantiate(fireGem, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
-        else if (collision.gameObject.tag == "fireBall")
-        {
-            Instantiate(fireGem, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
-        else if (collision.gameObject.tag == "blizzard")
-        {
-            Instantiate(fireGem, transform.position, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        
     }
 
 }
