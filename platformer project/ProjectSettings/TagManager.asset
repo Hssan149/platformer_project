@@ -26,6 +26,7 @@ TagManager:
   - shock
   - wall
   - spark
+  - ChestBox
   layers:
   - Default
   - TransparentFX

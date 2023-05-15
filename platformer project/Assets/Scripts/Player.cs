@@ -70,6 +70,12 @@ public class Player : MonoBehaviour
     private TextMeshProUGUI currentAbility;
     public GameObject[] hearts;
     public GameObject winText;
+    [SerializeField]
+    private GameObject Lore_dialogue;
+    [SerializeField]
+    private GameObject Lore_box;
+    [SerializeField]
+    private GameObject Lore_box_opened;
 
 
     void Start()
@@ -84,7 +90,9 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (!paused) 
-        { 
+        {
+            //Exit lore box
+            quit_Chest_Box();
             //player control section
             move();
             jump();
@@ -145,7 +153,7 @@ public class Player : MonoBehaviour
             }
         }
     }
-
+    //********************************************************************
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "spawnPoint")//change spawn point on collision
@@ -161,6 +169,15 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Finish")
             win();
+        else if (collision.gameObject.tag == "ChestBox")//chest box
+        {
+            AudioManager.Instance.playSfx("Chest open");
+            Lore_dialogue.SetActive(true);
+            Time.timeScale = 0;
+            Vector3 temp = Lore_box.transform.position;
+            //Destroy(Lore_box); --> it worked without destroying lore box (higher priority)
+            Instantiate(Lore_box_opened, temp, Quaternion.identity);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -203,6 +220,16 @@ public class Player : MonoBehaviour
     }
 
     //collision handling end
+
+    //Chest box Handling
+    void quit_Chest_Box()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && Lore_dialogue.activeSelf == true)
+        {
+            Lore_dialogue.SetActive(false);
+            Time.timeScale = 1; 
+        }
+    }
 
     //player movement and abilities start
 
