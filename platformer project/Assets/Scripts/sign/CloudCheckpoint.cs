@@ -13,10 +13,14 @@ public class CloudCheckpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameObject.SetActive(true);
             playerInRange = true;
             messageCanvas.gameObject.SetActive(true);
             messageCanvas.GetComponentInChildren<Text>().text = checkpointMessage;
+<<<<<<< Updated upstream
             nice.SetActive(true);
+=======
+>>>>>>> Stashed changes
         }
     }
 
@@ -25,9 +29,13 @@ public class CloudCheckpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            gameObject.SetActive(false);
             playerInRange = false;
             messageCanvas.gameObject.SetActive(false);
+<<<<<<< Updated upstream
             nice.SetActive(false);
+=======
+>>>>>>> Stashed changes
         }
     }
 }
