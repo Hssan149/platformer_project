@@ -1476,7 +1476,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 15, y: -2}
-  m_SizeDelta: {x: 1407.4, y: 1038.3}
+  m_SizeDelta: {x: 973.1, y: 898.2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118839277
 MonoBehaviour:
@@ -4303,11 +4303,11 @@ Transform:
   - {fileID: 2138280964}
   - {fileID: 752017936}
   - {fileID: 1684703628}
+  - {fileID: 1479953811}
   - {fileID: 108515726}
   - {fileID: 1548006192}
   - {fileID: 2000198374}
   - {fileID: 1532758057}
-  - {fileID: 1479953811}
   - {fileID: 1509772859}
   - {fileID: 1635079039}
   - {fileID: 1985223954}
@@ -10265,8 +10265,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.587, y: 31.626}
-  m_SizeDelta: {x: 1243.336, y: 795.25}
+  m_AnchoredPosition: {x: 2.386, y: 29.425}
+  m_SizeDelta: {x: 883.397, y: 628.458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1059748288
 MonoBehaviour:
@@ -10288,15 +10288,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In the world of Afathis, When people die, they will be sent to the underworld,
-    they either die there in peace, or become a demon, and that is decided by the
-    life of the soul before they die, Langulus was driven by revenge, anger, and
-    pain of his best friend betrayal, and so Zogras saw that a great opportunity
-    to use Langulus for his ambitions, so he offered him a deal that he can\u2019t
-    refuse, In exchange of sending him again to the world of Afathis, and taking
-    back his revenge, Langulus has the mission to find crystal of life and giving
-    it to Zogras, Langulus powers will be weaker than before he dies, but Zogras
-    will help him through his journey to take back what was taken from him\n"
+  m_text: After many years of peace in the empire, Greed and envy has driven Mr.
+    Thomas to betray his empire, council, people of Kreahola, and especially, langulus,
+    and by killing Langulus and stealing the crystal of life, Thomas has opened the
+    gates of underworld and demons who was locked up are now roaming the world, and
+    so chaos, destruction, and many deaths covered the world
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f93bd976e8d693245b1812dab5e0cec3, type: 2}
   m_sharedMaterial: {fileID: -651928384513689514, guid: f93bd976e8d693245b1812dab5e0cec3, type: 2}
@@ -13223,7 +13219,7 @@ Transform:
   - {fileID: 157402164}
   - {fileID: 1921522082}
   m_Father: {fileID: 447727357}
-  m_RootOrder: 158
+  m_RootOrder: 154
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1480121189
 PrefabInstance:
@@ -14336,9 +14332,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   winText: {fileID: 0}
-  Lore_dialogue: {fileID: 0}
+  Lore_dialogue: {fileID: 118839275}
   Lore_box: {fileID: 8434272921895467739, guid: b06457215c689134b86a8621b58dac67, type: 3}
   Lore_box_opened: {fileID: 8413483654420384789, guid: c898855be4e1da4459158a87577e5b3b, type: 3}
+  Lore_sign: {fileID: 0}
+  Lore_hint: {fileID: 0}
 --- !u!50 &1573154726
 Rigidbody2D:
   serializedVersion: 4
@@ -14720,8 +14718,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -56, y: -391}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchoredPosition: {x: -21.3, y: -391}
+  m_SizeDelta: {x: 169, y: 152}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1607240547
 MonoBehaviour:
