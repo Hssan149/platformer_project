@@ -14,19 +14,22 @@ public class Levels : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("level1")==1){
             SceneManager.LoadScene("level1");
-        }
             AudioManager.Instance.playMusic("bgm_level1");
+        }
+            
     }
 
     public void startLevel2()
     {
-        if ((PlayerPrefs.GetInt("level2")==1))
-        SceneManager.LoadScene("level2");
+        if ((PlayerPrefs.GetInt("level2") == 1))
+        {
+            SceneManager.LoadScene("level2");
+            AudioManager.Instance.playMusic("bgm_level2");
+        }
     }
-
     public void startLevel3()
     {
-        if ((PlayerPrefs.GetInt("level4")==1))
+        if (PlayerPrefs.GetInt("level4")==1)
         SceneManager.LoadScene("level3");
     }
 }

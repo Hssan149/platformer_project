@@ -62,13 +62,16 @@ public class In_Game_Menu : MonoBehaviour
         {
             PlayerPrefs.SetInt("level2", 1);//unlocks next level
             SceneManager.LoadScene("level2");
-            
+            AudioManager.Instance.playMusic("bgm_level2");
+            PlayerPrefs.SetInt("level", 2);
+
         }
         else if (GameManager.getInstance().currentLevel == 2)
         {
             PlayerPrefs.SetInt("level4", 1);//unlocks next level
-            SceneManager.LoadScene("level4"); //edit after changing scene name
-           
+            SceneManager.LoadScene("cutscene_2"); //edit after changing scene name
+            PlayerPrefs.SetInt("level", 3);
+
         }
     }
 
