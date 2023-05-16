@@ -416,9 +416,12 @@ public class Player : MonoBehaviour
             pause_menu.SetActive(true);
             transform.position = startPoint.transform.position;
             GameManager.getInstance().lives = 3;
+            if(SceneManager.GetActiveScene().name=="level1")
             AudioManager.Instance.stopMusic("bgm_level1");
-            
-
+            else if (SceneManager.GetActiveScene().name == "level2")
+                AudioManager.Instance.stopMusic("bgm_level2");
+            else if (SceneManager.GetActiveScene().name == "level4")
+                AudioManager.Instance.stopMusic("bgm_level3");
         }
     }
     
