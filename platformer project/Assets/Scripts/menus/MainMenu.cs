@@ -9,30 +9,34 @@ public class MainMenu : MonoBehaviour
     private GameObject levelsMenu;
     [SerializeField]
     private GameObject AudioSettings;
+    [SerializeField]
+    private GameObject continueButton;
+    [SerializeField]
+    private GameObject controls;
 
     private void Awake()
     {
         if(levelsMenu.activeSelf)
             levelsMenu.SetActive(false);
+        if (PlayerPrefs.GetInt("level1") == 1)
+            continueButton.SetActive(true);
+        else
+            continueButton.SetActive(false);
+
+
     }
 
     public void newGame()
     {
-        GameManager.getInstance().newGame = true;
-        PlayerPrefs.SetInt("newGame", (1));
-        PlayerPrefs.SetInt("currentLevel", 1);
+        PlayerPrefs.SetInt("level1", 1);
+        PlayerPrefs.SetInt("level2", 0);
+        PlayerPrefs.SetInt("level4", 0);
         SceneManager.LoadScene("CutScene");
-        PlayerPrefs.SetInt("level" + 2, 0);
-        PlayerPrefs.SetInt("level" + 3, 0);
     }
 
-    public void continueGame()
+    public void continueGame()//edit
     {
-        if (PlayerPrefs.GetInt("newGame") ==1) {
-            string level = "level" + PlayerPrefs.GetInt("currentLevel");
-            SceneManager.LoadScene(level);
-            AudioManager.Instance.playMusic("bgm_level1");
-        }
+        SceneManager.LoadScene("level" + GameManager.getInstance().currentLevel);
     }
 
     public void showLevels()
@@ -43,6 +47,11 @@ public class MainMenu : MonoBehaviour
     public void showSettings()
     {
         AudioSettings.SetActive(true);
+    }
+
+    public void showButtons()
+    {
+        controls.SetActive(true);
     }
 
     public void exitGame()

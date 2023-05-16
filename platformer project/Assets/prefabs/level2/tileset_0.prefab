@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7334145121054907216}
   m_Layer: 0
   m_Name: tileset_0
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4376433820057928072}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.229427, y: -2.330061, z: 0}
-  m_LocalScale: {x: 5.3623962, y: 3.9059048, z: 1}
+  m_LocalScale: {x: 1.7874655, y: 1.3019683, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}

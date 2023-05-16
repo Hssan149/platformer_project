@@ -15,13 +15,8 @@ public class GameManager : MonoBehaviour
     public int currentLevel = 1;
     public int lives = 3;
     public bool newGame = false;
-
     //collectables
     public int coins_level = 0;
-    public int levelCoins; //number of coins in a level.
-
-    
-    
 
     public static GameManager getInstance()
     {
@@ -52,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("level" + 1, 1);
+        
 
     }
 
