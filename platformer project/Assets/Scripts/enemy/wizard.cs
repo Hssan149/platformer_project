@@ -29,7 +29,7 @@ public class wizard : MonoBehaviour
     }
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -48,13 +48,13 @@ public class wizard : MonoBehaviour
         {
             anim.SetBool("moving", true);
         }
-       
-        
-    
+
+
+
     }
     private bool PlayerInsight()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range,boxCollider.bounds.size.y,boxCollider.bounds.size.z),0,Vector2.left,0, playerLayer);
+        RaycastHit2D hit = Physics2D.BoxCast(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z), 0, Vector2.left, 0, playerLayer);
         return hit.collider != null;
     }
 
@@ -71,7 +71,7 @@ public class wizard : MonoBehaviour
             || collision.gameObject.tag == "spark")
         {
             Instantiate(fireGem, transform.position, Quaternion.identity);
-            anim.SetBool("moving",false);
+            anim.SetBool("moving", false);
             anim.SetTrigger("die");
             StartCoroutine("dead");
         }
