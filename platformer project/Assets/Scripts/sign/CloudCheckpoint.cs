@@ -3,9 +3,9 @@ using UnityEngine.UI;
 
 public class CloudCheckpoint : MonoBehaviour
 {
-    public string checkpointMessage = "Press Space to Jump!";
-    public GameObject cloudObject;
+    public string checkpointMessage = "press space to jump !";
     public Canvas messageCanvas;
+    public GameObject nice;
 
     private bool playerInRange = false;
 
@@ -14,38 +14,20 @@ public class CloudCheckpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            ShowCloudAndMessage();
+            messageCanvas.gameObject.SetActive(true);
+            messageCanvas.GetComponentInChildren<Text>().text = checkpointMessage;
+            nice.SetActive(true);
         }
     }
+
 
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            HideCloudAndMessage();
-        }
-    }
-
-    void ShowCloudAndMessage()
-    {
-        cloudObject.SetActive(true);
-        messageCanvas.gameObject.SetActive(true);
-        messageCanvas.GetComponentInChildren<Text>().text = checkpointMessage;
-    }
-
-    void HideCloudAndMessage()
-    {
-        cloudObject.SetActive(false);
-        messageCanvas.gameObject.SetActive(false);
-    }
-
-    void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag("Player") && !playerInRange)
-        {
-            playerInRange = true;
-            ShowCloudAndMessage();
+            messageCanvas.gameObject.SetActive(false);
+            nice.SetActive(false);
         }
     }
 }
