@@ -75,6 +75,10 @@ public class Player : MonoBehaviour
     private GameObject Lore_box;
     [SerializeField]
     private GameObject Lore_box_opened;
+    [SerializeField]
+    private GameObject Lore_sign;
+    [SerializeField]
+    private GameObject Lore_hint;
 
 
     void Start()
@@ -93,6 +97,7 @@ public class Player : MonoBehaviour
         {
             //Exit lore box
             quit_Chest_Box();
+            quit_hint();
             //player control section
             move();
             jump();
@@ -179,6 +184,11 @@ public class Player : MonoBehaviour
             //Destroy(Lore_box); --> it worked without destroying lore box (higher priority)
             Instantiate(Lore_box_opened, temp, Quaternion.identity);
         }
+        else if(collision.gameObject.tag == "loreHint")
+        {
+            Lore_hint.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
@@ -231,6 +241,15 @@ public class Player : MonoBehaviour
             Time.timeScale = 1; 
         }
     }
+
+    void quit_hint()
+    {
+        if (Input.GetKeyDown(KeyCode.Q) && Lore_hint.activeSelf == true)
+        {
+            Lore_hint.SetActive(false);
+            Time.timeScale = 1;
+        }
+}
 
     //player movement and abilities start
 
