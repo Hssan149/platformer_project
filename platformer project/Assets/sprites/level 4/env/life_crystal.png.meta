@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2a1248b48851f784ca419709966be0fa
+guid: 824eb5d4ec2a0a54d93aafeeb10602b5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -103,7 +103,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: life_crystal_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 7
+        width: 63
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ef910ff70bfeed4698c2463f7dc2805
+      internalID: 1573569788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +135,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      life_crystal_0: 1573569788
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
