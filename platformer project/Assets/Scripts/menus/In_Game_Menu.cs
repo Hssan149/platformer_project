@@ -79,7 +79,7 @@ public class In_Game_Menu : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "level2")
         {
             PlayerPrefs.SetInt("level4", 1);//unlocks next level
-            SceneManager.LoadScene("cutscene_2"); //edit after changing scene name
+            SceneManager.LoadScene("CutScene2"); //edit after changing scene name
             PlayerPrefs.SetInt("level", 3);
 
         }

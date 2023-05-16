@@ -66,7 +66,7 @@ public class Dialouge : MonoBehaviour
                     SceneManager.LoadScene("level1");
                     AudioManager.Instance.playMusic("bgm_level1");
                 }
-                else if (SceneManager.GetActiveScene().name == "cutscene_2")
+                else if (SceneManager.GetActiveScene().name == "CutScene2")
                 {
                     SceneManager.LoadScene("level4");
                     AudioManager.Instance.playMusic("bgm_level2");
