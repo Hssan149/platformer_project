@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class wizard : MonoBehaviour
 {
+    
     [SerializeField]
     private float attackcooldown;
     [SerializeField]
@@ -23,13 +24,32 @@ public class wizard : MonoBehaviour
     private GameObject fireGem;
     public Animator anim;
 
+    public bool Dead = false;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
     }
     void Start()
     {
+        StartCoroutine("flip");
+    }
 
+    IEnumerator flip()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        yield return new WaitForSeconds(3.85f);
+        StartCoroutine("flipAgain");
+        colliderDistance = -.25f;
+
+    }
+
+    IEnumerator flipAgain()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        yield return new WaitForSeconds(3.85f);
+        StartCoroutine("flip");
+        colliderDistance = .25f;
     }
 
     // Update is called once per frame
@@ -64,6 +84,13 @@ public class wizard : MonoBehaviour
         Gizmos.DrawWireCube(boxCollider.bounds.center + transform.right * range * transform.localScale.x * colliderDistance, new Vector3(boxCollider.bounds.size.x * range, boxCollider.bounds.size.y, boxCollider.bounds.size.z));
     }
 
+    IEnumerator turnOffCollider()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "attack" || collision.gameObject.tag == "fireBall"
@@ -72,9 +99,22 @@ public class wizard : MonoBehaviour
         {
             Instantiate(fireGem, transform.position, Quaternion.identity);
             anim.SetBool("moving", false);
+            gameObject.GetComponent<EnemyPatrol>().enabled = false;
+            Dead = true;
             anim.SetTrigger("die");
             StartCoroutine("dead");
         }
+        else if(collision.gameObject.tag=="Player")
+        {
+            GameManager.getInstance().lives--;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
+            //Player.hearts[GameManager.getInstance().lives].SetActive(false);
+            print(GameManager.getInstance().lives);
+            StartCoroutine("turnOffCollider");
+        }
+
+        
+
 
     }
     IEnumerator dead()

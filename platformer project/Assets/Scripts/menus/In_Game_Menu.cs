@@ -68,7 +68,7 @@ public class In_Game_Menu : MonoBehaviour
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
         //load next scene
-        if (GameManager.getInstance().currentLevel == 1)
+        if (SceneManager.GetActiveScene().name=="level1")
         {
             PlayerPrefs.SetInt("level2", 1);//unlocks next level
             SceneManager.LoadScene("level2");
@@ -76,7 +76,7 @@ public class In_Game_Menu : MonoBehaviour
             PlayerPrefs.SetInt("level", 2);
 
         }
-        else if (GameManager.getInstance().currentLevel == 2)
+        else if (SceneManager.GetActiveScene().name == "level2")
         {
             PlayerPrefs.SetInt("level4", 1);//unlocks next level
             SceneManager.LoadScene("cutscene_2"); //edit after changing scene name

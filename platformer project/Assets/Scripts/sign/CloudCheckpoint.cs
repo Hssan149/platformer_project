@@ -7,7 +7,8 @@ public class CloudCheckpoint : MonoBehaviour
     public string checkpointMessage = "press space to jump !";
     public Canvas messageCanvas;
     public GameObject nice;
-
+    public TextMeshProUGUI message;
+    
     private bool playerInRange = false;
 
     void OnTriggerEnter2D(Collider2D other)
@@ -17,10 +18,8 @@ public class CloudCheckpoint : MonoBehaviour
             gameObject.SetActive(true);
             playerInRange = true;
             messageCanvas.gameObject.SetActive(true);
-            messageCanvas.GetComponentInChildren<Text>().text = checkpointMessage;
-
+            message.text = checkpointMessage;
             nice.SetActive(true);
-
         }
     }
 
@@ -29,10 +28,9 @@ public class CloudCheckpoint : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-       
+        
             playerInRange = false;
             messageCanvas.gameObject.SetActive(false);
-
             nice.SetActive(false);
 
 

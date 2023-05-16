@@ -153,6 +153,7 @@ public class Player : MonoBehaviour
             }
         }
     }
+
     //********************************************************************
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -259,7 +260,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.X)&&canAttack)
         {
-            AudioManager.Instance.playSfx("sword");
+            //AudioManager.Instance.playSfx("sword");
             canAttack = false;
             GameObject Attack = gameObject.transform.GetChild(0).gameObject;
             Attack.GetComponent<BoxCollider2D>().enabled = true;
@@ -423,6 +424,12 @@ public class Player : MonoBehaviour
             else if (SceneManager.GetActiveScene().name == "level4")
                 AudioManager.Instance.stopMusic("bgm_level3");
         }
+    }
+
+    public void takeHit()
+    {
+        GameManager.getInstance().lives--;
+        hearts[GameManager.getInstance().lives].SetActive(false);
     }
     
     void win()
