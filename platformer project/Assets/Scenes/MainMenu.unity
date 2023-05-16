@@ -4689,6 +4689,8 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d59fa531bbb08e04880db3a649f199ac, type: 3}
   - name: bgm_level2
     clip: {fileID: 8300000, guid: d679d6903c2873140ad969ff921b793a, type: 3}
+  - name: bgm_level3
+    clip: {fileID: 8300000, guid: 57049361bbcc5cd4c9a5158559cb6487, type: 3}
   sfx:
   - name: sword
     clip: {fileID: 8300000, guid: 96f7b8f36b2545548b3e3247147785b5, type: 3}
@@ -4702,6 +4704,12 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 78ee555a2ac0390438200bc7aed1d216, type: 3}
   - name: Chest open
     clip: {fileID: 8300000, guid: 4a0eaba0f9f548442a406c7b164129be, type: 3}
+  - name: Enemy1
+    clip: {fileID: 8300000, guid: 002a4d64c5cc83b478af8e685dadcbb0, type: 3}
+  - name: Enemy2
+    clip: {fileID: 8300000, guid: d700666f24aa7bf44b5a0722e5a36f81, type: 3}
+  - name: Enemy3
+    clip: {fileID: 8300000, guid: 8a8323b63dd46d246a0d1af29bd6db0a, type: 3}
   musicSoruce: {fileID: 290924282}
   sfxSource: {fileID: 1655187346}
   isMusicMuted: 0
