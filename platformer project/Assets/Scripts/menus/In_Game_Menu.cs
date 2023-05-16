@@ -54,9 +54,22 @@ public class In_Game_Menu : MonoBehaviour
         Time.timeScale = 1;
         Player.paused = false;
         Player.won = false;
+        GameManager.getInstance().coins_level = 0;
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
         //load next scene
+        if (GameManager.getInstance().currentLevel == 1)
+        {
+            PlayerPrefs.SetInt("level2", 1);//unlocks next level
+            SceneManager.LoadScene("level2");
+            
+        }
+        else if (GameManager.getInstance().currentLevel == 2)
+        {
+            PlayerPrefs.SetInt("level4", 1);//unlocks next level
+            SceneManager.LoadScene("level4"); //edit after changing scene name
+           
+        }
     }
 
     public void audioSettings()

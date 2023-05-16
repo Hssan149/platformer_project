@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     //abilities
     private bool haveAbility = false;
     [SerializeField]
-         GameObject shootingPoint;
+    GameObject shootingPoint;
     //fire ball
     [SerializeField]
     private GameObject fireBall;
@@ -50,7 +50,6 @@ public class Player : MonoBehaviour
     //ability gems
     [SerializeField]
     private Sprite[] sprites;
-
 
     //menus references
     [SerializeField]
@@ -85,6 +84,7 @@ public class Player : MonoBehaviour
         sp = GetComponent<SpriteRenderer>();
         gameObject.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
         spawnPoint = startPoint;
+        GameManager.getInstance().currentLevel = SceneManager.GetActiveScene().name[GameManager.getInstance().currentLevel = SceneManager.GetActiveScene().name.Length - 1];
     }
 
     void Update()
@@ -431,10 +431,12 @@ public class Player : MonoBehaviour
         pause_menu.SetActive(true);
         paused = true;
         winText.SetActive(true);
-        if (SceneManager.GetActiveScene().name == "level2")
-            PlayerPrefs.SetInt("level" + 2, 1);
-        else if (SceneManager.GetActiveScene().name == "level3")
-            PlayerPrefs.SetInt("level" + 3, 0);
+
+        
+        if (SceneManager.GetActiveScene().name == "level1")//unlocks next level on win
+            PlayerPrefs.SetInt("level2",1);
+        else if (SceneManager.GetActiveScene().name == "level2")
+            PlayerPrefs.SetInt("level4", 1);//update after changing scene name
 
     }
 
