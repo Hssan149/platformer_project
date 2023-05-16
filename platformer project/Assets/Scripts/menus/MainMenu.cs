@@ -36,7 +36,19 @@ public class MainMenu : MonoBehaviour
 
     public void continueGame()//edit
     {
-        SceneManager.LoadScene("level" + GameManager.getInstance().currentLevel);
+        //level load 
+        if(PlayerPrefs.GetInt("level")!=1)
+        SceneManager.LoadScene("level1");
+        else if(PlayerPrefs.GetInt("level") == 1)
+            SceneManager.LoadScene("level" + PlayerPrefs.GetInt("level"));
+
+        //music load 
+        if (PlayerPrefs.GetInt("level")== 1)
+            AudioManager.Instance.playMusic("bgm_level1");
+        else if (GameManager.getInstance().currentLevel == 2)
+            AudioManager.Instance.playMusic("bgm_level2");
+        else if (GameManager.getInstance().currentLevel == 3)
+            AudioManager.Instance.playMusic("bgm_level3");
     }
 
     public void showLevels()
