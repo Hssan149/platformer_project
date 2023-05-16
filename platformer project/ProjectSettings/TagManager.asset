@@ -27,6 +27,7 @@ TagManager:
   - wall
   - spark
   - ChestBox
+  - loreHint
   layers:
   - Default
   - TransparentFX
