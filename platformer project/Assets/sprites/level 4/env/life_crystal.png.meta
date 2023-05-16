@@ -113,7 +113,7 @@ TextureImporter:
         width: 63
         height: 100
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -121,6 +121,132 @@ TextureImporter:
       bones: []
       spriteID: 2ef910ff70bfeed4698c2463f7dc2805
       internalID: 1573569788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 8
+        width: 62
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 127362ee14d3fd64984f0446296f868d
+      internalID: -1666557085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_2
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 8
+        width: 63
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e3cda6f63b353143b9de8ef1f54354a
+      internalID: 1413205961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_3
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 7
+        width: 63
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be1a8c410c892094f8af2f7046a919a2
+      internalID: -1827962472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_4
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 7
+        width: 63
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e4958e75000aa041a656c85b5c32d1b
+      internalID: 1861159789
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_5
+      rect:
+        serializedVersion: 2
+        x: 321
+        y: 7
+        width: 62
+        height: 100
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36f7bfa2ffe52604889ff9a2694ced24
+      internalID: -1799512890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: life_crystal_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 7
+        width: 63
+        height: 101
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a57619ebda59c541816a07a319e48c2
+      internalID: 297689161
       vertices: []
       indices: 
       edges: []
@@ -137,6 +263,12 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       life_crystal_0: 1573569788
+      life_crystal_1: -1666557085
+      life_crystal_2: 1413205961
+      life_crystal_3: -1827962472
+      life_crystal_4: 1861159789
+      life_crystal_5: -545615294
+      life_crystal_6: -1799512890
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
