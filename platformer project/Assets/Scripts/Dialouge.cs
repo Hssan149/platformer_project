@@ -61,8 +61,17 @@ public class Dialouge : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 gameObject.SetActive(false);
-                SceneManager.LoadScene("level1");
-                AudioManager.Instance.playMusic("bgm_level1");
+                if (SceneManager.GetActiveScene().name == "CutScene")
+                {
+                    SceneManager.LoadScene("level1");
+                    AudioManager.Instance.playMusic("bgm_level1");
+                }
+                else if (SceneManager.GetActiveScene().name == "cutscene_2")
+                {
+                    SceneManager.LoadScene("level4");
+                    AudioManager.Instance.playMusic("bgm_level2");
+                }
+                
             }
         }
     }

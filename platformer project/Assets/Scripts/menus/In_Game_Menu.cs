@@ -18,20 +18,28 @@ public class In_Game_Menu : MonoBehaviour
 
     }
 
-    public void restart()
+    public void restart()//edit music
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         Time.timeScale = 1;
         Player.paused = false;
         Player.dead = false;
-        AudioManager.Instance.playMusic("bgm_level1");  
+        if (SceneManager.GetActiveScene().name == "level1")
+            AudioManager.Instance.playMusic("bgm_level1");
+        else if (SceneManager.GetActiveScene().name == "level2")
+            AudioManager.Instance.playMusic("bgm_level2");
+        else if (SceneManager.GetActiveScene().name == "level4")
+            AudioManager.Instance.playMusic("bgm_level3");
+
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
             gameObject.transform.GetChild(0).gameObject.SetActive(true);
         foreach (GameObject n in player.GetComponent<Player>().hearts)
             n.SetActive(true);
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
+
         //reset gameManager
+        GameManager.getInstance().coins_level = 0;
 
     }
 
@@ -47,6 +55,7 @@ public class In_Game_Menu : MonoBehaviour
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
         //reset gameManager
+        GameManager.getInstance().coins_level = 0;
     }
 
     public void nextLevel()
@@ -55,6 +64,7 @@ public class In_Game_Menu : MonoBehaviour
         Player.paused = false;
         Player.won = false;
         GameManager.getInstance().coins_level = 0;
+        GameManager.getInstance().coins_level = 0;
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
         //load next scene
@@ -62,13 +72,16 @@ public class In_Game_Menu : MonoBehaviour
         {
             PlayerPrefs.SetInt("level2", 1);//unlocks next level
             SceneManager.LoadScene("level2");
-            
+            AudioManager.Instance.playMusic("bgm_level2");
+            PlayerPrefs.SetInt("level", 2);
+
         }
         else if (GameManager.getInstance().currentLevel == 2)
         {
             PlayerPrefs.SetInt("level4", 1);//unlocks next level
-            SceneManager.LoadScene("level4"); //edit after changing scene name
-           
+            SceneManager.LoadScene("cutscene_2"); //edit after changing scene name
+            PlayerPrefs.SetInt("level", 3);
+
         }
     }
 
