@@ -28,6 +28,7 @@ TagManager:
   - spark
   - ChestBox
   - loreHint
+  - bullet
   layers:
   - Default
   - TransparentFX

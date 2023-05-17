@@ -21,10 +21,13 @@ public class wizard : MonoBehaviour
     private float CooldownTimer = Mathf.Infinity;
 
     [SerializeField]
-    private GameObject fireGem;
+    private float flipDuration;
+    [SerializeField]
+    private GameObject abilityGem;
     public Animator anim;
 
-    public bool Dead = false;
+    [SerializeField]
+    private bool canDrop;
 
     private void Awake()
     {
@@ -33,12 +36,13 @@ public class wizard : MonoBehaviour
     void Start()
     {
         StartCoroutine("flip");
+
     }
 
     IEnumerator flip()
     {
         gameObject.GetComponent<SpriteRenderer>().flipX = false;
-        yield return new WaitForSeconds(3.85f);
+        yield return new WaitForSeconds(flipDuration);
         StartCoroutine("flipAgain");
         colliderDistance = -.25f;
 
@@ -47,7 +51,7 @@ public class wizard : MonoBehaviour
     IEnumerator flipAgain()
     {
         gameObject.GetComponent<SpriteRenderer>().flipX = true;
-        yield return new WaitForSeconds(3.85f);
+        yield return new WaitForSeconds(flipDuration);
         StartCoroutine("flip");
         colliderDistance = .25f;
     }
@@ -97,10 +101,11 @@ public class wizard : MonoBehaviour
             || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
             || collision.gameObject.tag == "spark")
         {
-            Instantiate(fireGem, transform.position, Quaternion.identity);
+            if(canDrop)
+            Instantiate(abilityGem, transform.position, Quaternion.identity);
             anim.SetBool("moving", false);
             gameObject.GetComponent<EnemyPatrol>().enabled = false;
-            Dead = true;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             anim.SetTrigger("die");
             StartCoroutine("dead");
         }
@@ -108,18 +113,12 @@ public class wizard : MonoBehaviour
         {
             GameManager.getInstance().lives--;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
-            //Player.hearts[GameManager.getInstance().lives].SetActive(false);
-            print(GameManager.getInstance().lives);
             StartCoroutine("turnOffCollider");
         }
-
-        
-
-
     }
     IEnumerator dead()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.5f);
         Destroy(gameObject);
     }
 }

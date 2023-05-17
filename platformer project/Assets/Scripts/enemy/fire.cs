@@ -22,16 +22,25 @@ public class fire : MonoBehaviour
         }
 
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
     {
         shoot();
     }
-   
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag=="Player")
+        {
+            GameManager.getInstance().lives--;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false); 
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
+            Destroy(gameObject);
+        }
+    }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

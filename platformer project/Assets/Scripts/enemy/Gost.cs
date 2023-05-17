@@ -11,14 +11,37 @@ public class Gost : MonoBehaviour
     private GameObject polit;
     [SerializeField]
     public float range = 10f;
+    private Animator anim;
+    [SerializeField]
+    private float flipDuration;
+    [SerializeField]
+    private bool canDrop;
+    [SerializeField]
+    private GameObject abilityGem;
+    private GameObject bullet;
     // Start is called before the first frame update
     void Start()
     {
-        
-        InvokeRepeating("fire", 1f, 3f);
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        anim = gameObject.GetComponent<Animator>();
+        InvokeRepeating("fire", 1f, 1.6f);
+        StartCoroutine("flip");
     }
 
-    
+    IEnumerator flip()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = false;
+        yield return new WaitForSeconds(flipDuration);
+        StartCoroutine("flipAgain");
+    }
+
+    IEnumerator flipAgain()
+    {
+        gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        yield return new WaitForSeconds(flipDuration);
+        StartCoroutine("flip");
+        
+    }
 
 
     // Update is called once per frame
@@ -36,11 +59,57 @@ public class Gost : MonoBehaviour
             float distance = Vector2.Distance(transform.position, playerObject.transform.position);
             if (distance <= range)
             {
+                gameObject.GetComponent<EnemyPatrol>().enabled = false;
+                anim.SetTrigger("attack");
+                anim.SetBool("moving", false);
                 Vector2 playerLocation = playerObject.transform.position - attackingPoint.transform.position;
-                polit = Instantiate(polit, attackingPoint.transform.position, Quaternion.identity);
-                polit.GetComponent<fire>().setDirection(playerLocation);
+                
+                    bullet = Instantiate(polit, attackingPoint.transform.position, Quaternion.identity);
+                if (bullet != null)
+                {
+                    bullet.GetComponent<fire>().setDirection(playerLocation);
+                }
+            }
+            else
+            {
+                gameObject.GetComponent<EnemyPatrol>().enabled = true;
+                anim.SetBool("moving", true);
             }
         }
+    }
+
+    IEnumerator turnOffCollider()
+    {
+        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "attack" || collision.gameObject.tag == "fireBall"
+            || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
+            || collision.gameObject.tag == "spark")
+        {
+            if(canDrop)
+            Instantiate(abilityGem, transform.position, Quaternion.identity);
+            anim.SetBool("moving", false);
+            gameObject.GetComponent<EnemyPatrol>().enabled = false;
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            anim.SetTrigger("die");
+            StartCoroutine("dead");
+        }
+        else if (collision.gameObject.tag == "Player")
+        {
+            GameManager.getInstance().lives--;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
+            StartCoroutine("turnOffCollider");
+        }
+    }
+    IEnumerator dead()
+    {
+        yield return new WaitForSeconds(1f);
+        Destroy(gameObject);
     }
 
 }
