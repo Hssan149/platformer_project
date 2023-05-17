@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 89502880268532048, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
       propertyPath: m_Name
-      value: fireBall
+      value: ice attack
       objectReference: {fileID: 0}
     - target: {fileID: 128199346030122327, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
       propertyPath: m_RootOrder
@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 98ce526bc2bf97147b8602d77d69c998, type: 2}
+    - target: {fileID: 3355219048535687241, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
+      propertyPath: m_FlipX
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3355219048535687241, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
       propertyPath: m_Sprite
       value: 

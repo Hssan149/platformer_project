@@ -24,6 +24,7 @@ public class In_Game_Menu : MonoBehaviour
         Time.timeScale = 1;
         Player.paused = false;
         Player.dead = false;
+        GameManager.getInstance().lives = 4;
         if (SceneManager.GetActiveScene().name == "level1")
             AudioManager.Instance.playMusic("bgm_level1");
         else if (SceneManager.GetActiveScene().name == "level2")

@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     //level managment
     public int currentLevel = 1;
-    public int lives = 3;
+    public int lives = 4;
     public bool newGame = false;
     //collectables
     public int coins_level = 0;
@@ -32,6 +32,7 @@ public class GameManager : MonoBehaviour
             }
         }
         return instance;
+
     }
 
     private void Awake()
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        
+        PlayerPrefs.SetInt("level1", 0);
 
     }
 
