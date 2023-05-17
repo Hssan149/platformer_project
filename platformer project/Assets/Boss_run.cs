@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Boss_run : StateMachineBehaviour
 {
-    public float speed = 5f;
+    public float speed =7f;
     public float attackRange = 3f;
 
     Transform player;
@@ -25,6 +25,7 @@ public class Boss_run : StateMachineBehaviour
     {
         boss.LookAtPlayer();
 
+        animator.SetBool("moveing", true);
         Vector2 target = new Vector2(player.position.x, rb.position.y);
         Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.fixedDeltaTime);
         rb.MovePosition(newPos);
@@ -38,6 +39,8 @@ public class Boss_run : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        animator.SetBool("moveing", false);
         animator.ResetTrigger("Attack");
+
     }
 }
