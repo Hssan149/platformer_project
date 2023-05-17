@@ -1020,11 +1020,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.915468
+      value: 7.920667
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3233333
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10673,8 +10673,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 14.587, y: 31.626}
-  m_SizeDelta: {x: 1243.336, y: 795.25}
+  m_AnchoredPosition: {x: 48.68499, y: 31.626}
+  m_SizeDelta: {x: 1311.532, y: 795.25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &422967679
 MonoBehaviour:
@@ -10696,15 +10696,15 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "In the world of Afathis, When people die, they will be sent to the underworld,
-    they either die there in peace, or become a demon, and that is decided by the
-    life of the soul before they die, Langulus was driven by revenge, anger, and
-    pain of his best friend betrayal, and so Zogras saw that a great opportunity
-    to use Langulus for his ambitions, so he offered him a deal that he can\u2019t
-    refuse, In exchange of sending him again to the world of Afathis, and taking
-    back his revenge, Langulus has the mission to find crystal of life and giving
-    it to Zogras, Langulus powers will be weaker than before he dies, but Zogras
-    will help him through his journey to take back what was taken from him\n"
+  m_text: "Long time ago in the world of Afathis, the great Warrior of kreahola \u201CLangulus
+    hassori\u201D defeated the Lord of demons \u201CZogras\u201D, and with that,
+    peace, and relief spreaded out in the empire, by defeating Zogras, the life crystal
+    was retrieved and kept safe to keep the balance set in the world and all demons
+    were sent back and locked up in the underworld.\r\nMr. Thomas T. William \u201CMaster
+    of the Magic\u201D was Langulus best friend and most trusted counselor in the
+    empire, him and Langulus had hundreds of fights together, and by the end of the
+    battle between humans and demons, Langulus Hassori has been named the Grand Master
+    in the empire, and of course, become the strongest warrior in the empire\r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f93bd976e8d693245b1812dab5e0cec3, type: 2}
   m_sharedMaterial: {fileID: -651928384513689514, guid: f93bd976e8d693245b1812dab5e0cec3, type: 2}
@@ -10767,7 +10767,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0.7832336, y: -5.693939, z: 0, w: 3.8804016}
+  m_margin: {x: -78.18082, y: -5.693939, z: 0, w: 3.8804016}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -15970,11 +15970,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.3521357
+      value: 7.3573346
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3233333
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -16034,7 +16034,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160.6
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -18575,11 +18575,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.7633333
+      value: 6.7685323
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3233333
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22647,9 +22647,11 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   winText: {fileID: 489603135}
-  Lore_dialogue: {fileID: 422967677}
+  Lore_dialogue: {fileID: 1967730559}
   Lore_box: {fileID: 8434272921895467739, guid: b06457215c689134b86a8621b58dac67, type: 3}
   Lore_box_opened: {fileID: 8413483654420384789, guid: c898855be4e1da4459158a87577e5b3b, type: 3}
+  Lore_sign: {fileID: 0}
+  Lore_hint: {fileID: 0}
 --- !u!50 &867065227
 Rigidbody2D:
   serializedVersion: 4
@@ -25120,7 +25122,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160.6
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -26963,7 +26965,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1018068240}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.09149361, y: 0.17105958, z: -10}
+  m_LocalPosition: {x: -0.08972263, y: 0.17105958, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37168,11 +37170,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.6288013
+      value: 7.634
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3233333
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -37232,7 +37234,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160.6
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -41639,11 +41641,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 665941306816190863, guid: f94acbf306bb39646845eedbc82e7e6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 15.034138
+      value: 15.6
       objectReference: {fileID: 0}
     - target: {fileID: 665941306816190863, guid: f94acbf306bb39646845eedbc82e7e6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.4380484
+      value: 4.77
       objectReference: {fileID: 0}
     - target: {fileID: 665941306816190863, guid: f94acbf306bb39646845eedbc82e7e6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -42462,7 +42464,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1773431616}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.09149361, y: 0.17105958, z: -10}
+  m_LocalPosition: {x: -0.08972263, y: 0.17105958, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -44789,11 +44791,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.0588026
+      value: 7.0640016
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.3233333
+      value: 1.066
       objectReference: {fileID: 0}
     - target: {fileID: 4423664451958538796, guid: 8a2ac1ad2bed51b4e9a830d399730da4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -44853,7 +44855,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160.6
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
@@ -47716,7 +47718,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 15, y: -2}
-  m_SizeDelta: {x: 1407.4, y: 1038.3}
+  m_SizeDelta: {x: 1542.3, y: 1106.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1967730561
 MonoBehaviour:
@@ -47846,7 +47848,7 @@ PlatformEffector2D:
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
-  m_SurfaceArc: 160.6
+  m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
   m_SideArc: 1
