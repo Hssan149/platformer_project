@@ -54,4 +54,8 @@ public class FireBall : MonoBehaviour
         yield return new WaitForSeconds(.3f); //wait to play anim before destroying the object
         Destroy(gameObject);
     }
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
 }

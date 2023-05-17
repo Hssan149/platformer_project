@@ -28,6 +28,7 @@ public class MainMenu : MonoBehaviour
 
     public void newGame()
     {
+        PlayerPrefs.SetInt("level", 1);
         PlayerPrefs.SetInt("level1", 1);
         PlayerPrefs.SetInt("level2", 0);
         PlayerPrefs.SetInt("level3", 0);
@@ -37,18 +38,16 @@ public class MainMenu : MonoBehaviour
     public void continueGame()//edit
     {
         //level load 
-        if(PlayerPrefs.GetInt("level")!=1)
-        SceneManager.LoadScene("level1");
-        else if(PlayerPrefs.GetInt("level") == 1)
-            SceneManager.LoadScene("level" + PlayerPrefs.GetInt("level"));
+        
+        SceneManager.LoadScene("level" + PlayerPrefs.GetInt("level"));
 
         //music load 
-        if (PlayerPrefs.GetInt("level")== 1)
-            AudioManager.Instance.playMusic("bgm_level1");
-        else if (GameManager.getInstance().currentLevel == 2)
+        if (PlayerPrefs.GetInt("level") ==  2)
             AudioManager.Instance.playMusic("bgm_level2");
-        else if (GameManager.getInstance().currentLevel == 3)
+        else if (PlayerPrefs.GetInt("level") ==  3)
             AudioManager.Instance.playMusic("bgm_level3");
+        else
+            AudioManager.Instance.playMusic("bgm_level1");
     }
 
     public void showLevels()

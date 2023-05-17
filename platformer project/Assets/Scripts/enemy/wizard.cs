@@ -116,6 +116,8 @@ public class wizard : MonoBehaviour
         }
         else if(collision.gameObject.tag=="Player")
         {
+            
+            //GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
             GameManager.getInstance().lives--;
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
             StartCoroutine("turnOffCollider");

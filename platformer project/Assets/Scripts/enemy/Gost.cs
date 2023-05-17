@@ -19,7 +19,7 @@ public class Gost : MonoBehaviour
     [SerializeField]
     private GameObject abilityGem;
     private GameObject bullet;
-    private int health = 2;
+    private int health = 1;
     // Start is called before the first frame update
     void Start()
     {

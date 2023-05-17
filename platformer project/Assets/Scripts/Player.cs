@@ -61,6 +61,7 @@ public class Player : MonoBehaviour
     public static bool paused = false;
     public static bool dead = false;
     public static bool won = false;
+    private bool finalBoss = false;
 
     //UI
     [SerializeField]
@@ -115,6 +116,10 @@ public class Player : MonoBehaviour
                     shootShock();
                 else if (haveSpark)
                     shootSpark();
+            }
+            if (finalBoss)
+            {
+                GameObject.FindGameObjectWithTag("finalColl").SetActive(false);
             }
         }
         if (Input.GetKeyDown(KeyCode.Escape)&&!dead&&!won)
@@ -435,7 +440,7 @@ public class Player : MonoBehaviour
             pause_menu.transform.GetChild(0).gameObject.SetActive(false);
             pause_menu.SetActive(true);
             transform.position = startPoint.transform.position;
-            GameManager.getInstance().lives = 3;
+            GameManager.getInstance().lives = 4;
             if(SceneManager.GetActiveScene().name=="level1")
             AudioManager.Instance.stopMusic("bgm_level1");
             else if (SceneManager.GetActiveScene().name == "level2")

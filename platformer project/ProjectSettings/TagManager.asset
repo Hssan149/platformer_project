@@ -29,6 +29,7 @@ TagManager:
   - ChestBox
   - loreHint
   - bullet
+  - finalColl
   layers:
   - Default
   - TransparentFX
