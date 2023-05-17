@@ -19,6 +19,7 @@ public class Gost : MonoBehaviour
     [SerializeField]
     private GameObject abilityGem;
     private GameObject bullet;
+    private int health = 2;
     // Start is called before the first frame update
     void Start()
     {
@@ -91,13 +92,18 @@ public class Gost : MonoBehaviour
             || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
             || collision.gameObject.tag == "spark")
         {
-            if(canDrop)
-            Instantiate(abilityGem, transform.position, Quaternion.identity);
-            anim.SetBool("moving", false);
-            gameObject.GetComponent<EnemyPatrol>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            anim.SetTrigger("die");
-            StartCoroutine("dead");
+            health--;
+            if (health == 0)
+            {
+                if (canDrop)
+                    Instantiate(abilityGem, transform.position, Quaternion.identity);
+                anim.SetBool("moving", false);
+                CancelInvoke();
+                gameObject.GetComponent<EnemyPatrol>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                anim.SetTrigger("die");
+                StartCoroutine("dead");
+            }
         }
         else if (collision.gameObject.tag == "Player")
         {
@@ -108,8 +114,10 @@ public class Gost : MonoBehaviour
     }
     IEnumerator dead()
     {
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(.4f);
+        AudioManager.Instance.playSfx("Enemy1");
         Destroy(gameObject);
+
     }
 
 }

@@ -29,7 +29,10 @@ public class Levels : MonoBehaviour
     }
     public void startLevel3()
     {
-        if (PlayerPrefs.GetInt("level4")==1)
-        SceneManager.LoadScene("level3");
+        if (PlayerPrefs.GetInt("level3") == 1)
+        {
+            SceneManager.LoadScene("level3");
+            AudioManager.Instance.playMusic("bgm_level3");
+        }
     }
 }

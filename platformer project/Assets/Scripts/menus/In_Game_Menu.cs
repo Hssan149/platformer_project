@@ -28,7 +28,7 @@ public class In_Game_Menu : MonoBehaviour
             AudioManager.Instance.playMusic("bgm_level1");
         else if (SceneManager.GetActiveScene().name == "level2")
             AudioManager.Instance.playMusic("bgm_level2");
-        else if (SceneManager.GetActiveScene().name == "level4")
+        else if (SceneManager.GetActiveScene().name == "level3")
             AudioManager.Instance.playMusic("bgm_level3");
 
         if (!gameObject.transform.GetChild(0).gameObject.activeSelf)
@@ -78,10 +78,10 @@ public class In_Game_Menu : MonoBehaviour
         }
         else if (SceneManager.GetActiveScene().name == "level2")
         {
-            PlayerPrefs.SetInt("level4", 1);//unlocks next level
+            PlayerPrefs.SetInt("level3", 1);//unlocks next level
             SceneManager.LoadScene("CutScene2"); //edit after changing scene name
+            AudioManager.Instance.playMusic("bgm_level3");
             PlayerPrefs.SetInt("level", 3);
-
         }
     }
 

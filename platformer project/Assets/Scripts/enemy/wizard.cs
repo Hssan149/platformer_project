@@ -29,6 +29,7 @@ public class wizard : MonoBehaviour
     [SerializeField]
     private bool canDrop;
 
+    private int health = 2;
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -101,13 +102,17 @@ public class wizard : MonoBehaviour
             || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
             || collision.gameObject.tag == "spark")
         {
-            if(canDrop)
-            Instantiate(abilityGem, transform.position, Quaternion.identity);
-            anim.SetBool("moving", false);
-            gameObject.GetComponent<EnemyPatrol>().enabled = false;
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
-            anim.SetTrigger("die");
-            StartCoroutine("dead");
+            health--;
+            if (health == 0)
+            {
+                if (canDrop)
+                    Instantiate(abilityGem, transform.position, Quaternion.identity);
+                anim.SetBool("moving", false);
+                gameObject.GetComponent<EnemyPatrol>().enabled = false;
+                gameObject.GetComponent<BoxCollider2D>().enabled = false;
+                anim.SetTrigger("die");
+                StartCoroutine("dead");
+            }
         }
         else if(collision.gameObject.tag=="Player")
         {
@@ -119,6 +124,7 @@ public class wizard : MonoBehaviour
     IEnumerator dead()
     {
         yield return new WaitForSeconds(.5f);
+        AudioManager.Instance.playSfx("Enemy2");
         Destroy(gameObject);
     }
 }

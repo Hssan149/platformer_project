@@ -30,7 +30,7 @@ public class MainMenu : MonoBehaviour
     {
         PlayerPrefs.SetInt("level1", 1);
         PlayerPrefs.SetInt("level2", 0);
-        PlayerPrefs.SetInt("level4", 0);
+        PlayerPrefs.SetInt("level3", 0);
         SceneManager.LoadScene("CutScene");
     }
 
