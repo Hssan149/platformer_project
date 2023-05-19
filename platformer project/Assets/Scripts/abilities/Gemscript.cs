@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Gemscript : MonoBehaviour
 {
-    public ParticleSystem partSys;
+
 
     private void Start()
     {
-        partSys = GameObject.FindGameObjectWithTag("EditorOnly").GetComponent<ParticleSystem>();
-        GameObject.FindGameObjectWithTag("EditorOnly").transform.position = transform.position;
+
         StartCoroutine("up");
         StartCoroutine("dispawn");
         

@@ -9,6 +9,8 @@ public class AudioMenu : MonoBehaviour
     //sliders refernce
     public Slider musicSlider;
     public Slider sfxSlider;
+    [SerializeField]
+    private GameObject check;
 
     private bool hints = true;
 
@@ -75,9 +77,15 @@ public class AudioMenu : MonoBehaviour
     {
         hints = !hints;
         if (hints)
+        {
+            check.SetActive(true);
             PlayerPrefs.SetInt("hint", 1);
+        }
         else
+        {
+            check.SetActive(false);
             PlayerPrefs.SetInt("hint", 0);
+        }
         print(PlayerPrefs.GetInt("hint"));
     }
 

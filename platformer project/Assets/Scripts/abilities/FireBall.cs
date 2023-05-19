@@ -43,6 +43,7 @@ public class FireBall : MonoBehaviour
         {// on collision with ground destroy it and play explosion animation
             moving = false;
             gameObject.transform.localScale = new Vector3(3f, 3f, 0);//change size of fire ball object to scale its explosion animation.
+            AudioManager.Instance.playSfx("Fire ball Explosion");
             anim.SetBool("destroy", true);//play explosion animation
             StartCoroutine("wait");
             

@@ -172,7 +172,7 @@ public class Player : MonoBehaviour
         {
             if (GameManager.getInstance().lives > 0)
             {
-                anim.SetTrigger("hit");
+                AudioManager.Instance.playSfx("hit");
                 GameManager.getInstance().lives--;
                 hearts[GameManager.getInstance().lives].SetActive(false);
                 if(GameManager.getInstance().lives>1)
@@ -190,6 +190,7 @@ public class Player : MonoBehaviour
         }
         else if (collision.gameObject.tag == "coin")//pick up collectables
         {
+            AudioManager.Instance.playSfx("coin");
             Destroy(collision.gameObject);
             GameManager.getInstance().coins_level++;
             coins.text = "X " + GameManager.getInstance().coins_level;
@@ -216,9 +217,13 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "abilityGem" && !haveAbility && Input.GetKey(KeyCode.C))
         {
-            collision.gameObject.GetComponent<Gemscript>().partSys.Play();
+            AudioManager.Instance.playSfx("gem");
             if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[0])
             {
+                GameObject effect = GameObject.Find("fire PartSystem");
+                effect.transform.position = collision.gameObject.transform.position;
+                effect.GetComponent<ParticleSystem>().Play();
+
                 haveAbility = true;
                 canFireBall = true;
                 haveFireBall = true;
@@ -227,6 +232,10 @@ public class Player : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[1])
             {
+                GameObject effect = GameObject.Find("ice PartSystem");
+                effect.transform.position = collision.gameObject.transform.position;
+                effect.GetComponent<ParticleSystem>().Play();
+
                 haveAbility = true;
                 canBlizzard = true;
                 haveBlizzard = true;
@@ -235,6 +244,10 @@ public class Player : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[2])
             {
+                GameObject effect = GameObject.Find("shock PartSystem");
+                effect.transform.position = collision.gameObject.transform.position;
+                effect.GetComponent<ParticleSystem>().Play();
+
                 haveAbility = true;
                 canShock = true;
                 haveShock = true;
@@ -243,6 +256,10 @@ public class Player : MonoBehaviour
             }
             else if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[3])
             {
+                GameObject effect = GameObject.Find("spark PartSystem");
+                effect.transform.position = collision.gameObject.transform.position;
+                effect.GetComponent<ParticleSystem>().Play();
+
                 haveAbility = true;
                 canSpark = true;
                 haveSpark = true;
@@ -404,6 +421,7 @@ public class Player : MonoBehaviour
     {
         if (canShock && Input.GetKeyDown(KeyCode.Z))
         {
+            AudioManager.Instance.playSfx("Electric shock");
             canShock = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
@@ -426,7 +444,7 @@ public class Player : MonoBehaviour
     {
         if (canSpark && Input.GetKeyDown(KeyCode.Z))
         {
-            
+            AudioManager.Instance.playSfx("spark");
             canSpark = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
@@ -468,13 +486,14 @@ public class Player : MonoBehaviour
 
     public void takeHit()
     {
-        anim.SetTrigger("hit");
+        AudioManager.Instance.playSfx("hit");
         GameManager.getInstance().lives--;
         hearts[GameManager.getInstance().lives].SetActive(false);
     }
     
     void win()
     {
+        AudioManager.Instance.playSfx("win");
         Time.timeScale = 0;
         won = true;
         pause_menu.transform.GetChild(0).gameObject.SetActive(false);
