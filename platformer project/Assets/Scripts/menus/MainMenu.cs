@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
     [SerializeField]
@@ -22,8 +23,8 @@ public class MainMenu : MonoBehaviour
             continueButton.SetActive(true);
         else
             continueButton.SetActive(false);
-
-
+        
+        
     }
 
     public void newGame()

@@ -96,7 +96,7 @@ public class Gost : MonoBehaviour
             if (health == 0)
             {
                 if (canDrop)
-                    Instantiate(abilityGem, transform.position, Quaternion.identity);
+                    Instantiate(abilityGem, new Vector3(transform.position.x, transform.position.y -.75f), Quaternion.identity);
                 anim.SetBool("moving", false);
                 CancelInvoke();
                 gameObject.GetComponent<EnemyPatrol>().enabled = false;

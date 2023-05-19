@@ -19,8 +19,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
 
     //spawn points
-    [SerializeField]
-    private GameObject startPoint;
+    
+    public GameObject startPoint;
     private GameObject spawnPoint;
 
     //abilities
@@ -156,10 +156,11 @@ public class Player : MonoBehaviour
         {
             if (GameManager.getInstance().lives > 0)
             {
+                anim.SetTrigger("hit");
                 GameManager.getInstance().lives--;
                 hearts[GameManager.getInstance().lives].SetActive(false);
+                if(GameManager.getInstance().lives>1)
                 transform.position = spawnPoint.transform.position;
-                
             }
         }
     }
@@ -386,13 +387,13 @@ public class Player : MonoBehaviour
     {
         if (canShock && Input.GetKeyDown(KeyCode.Z))
         {
-            AudioManager.Instance.playSfx("Electric shock");
             canShock = false;
             if (sp.flipX == true)
                 shootingPoint.transform.position = transform.position + new Vector3(-1.5f, 0f, 0f);
             else
                 shootingPoint.transform.position = transform.position + new Vector3(1.5f, 0f, 0f);
             Instantiate(shock, transform.position, Quaternion.identity);
+            AudioManager.Instance.playSfx("Electric shock");
             StartCoroutine("shockCoolDown");
         }
     }
@@ -439,8 +440,6 @@ public class Player : MonoBehaviour
             dead = true;
             pause_menu.transform.GetChild(0).gameObject.SetActive(false);
             pause_menu.SetActive(true);
-            transform.position = startPoint.transform.position;
-            GameManager.getInstance().lives = 4;
             if(SceneManager.GetActiveScene().name=="level1")
             AudioManager.Instance.stopMusic("bgm_level1");
             else if (SceneManager.GetActiveScene().name == "level2")
@@ -452,6 +451,7 @@ public class Player : MonoBehaviour
 
     public void takeHit()
     {
+        anim.SetTrigger("hit");
         GameManager.getInstance().lives--;
         hearts[GameManager.getInstance().lives].SetActive(false);
     }

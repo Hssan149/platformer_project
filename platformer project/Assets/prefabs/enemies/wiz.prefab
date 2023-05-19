@@ -99,5 +99,9 @@ PrefabInstance:
       propertyPath: polit
       value: 
       objectReference: {fileID: 1409750361735692141, guid: 9cc5e06222e5f2044944b95c542bc768, type: 3}
+    - target: {fileID: 2694256601874861363, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}
+      propertyPath: abilityGem
+      value: 
+      objectReference: {fileID: 4692409696368662001, guid: 15630ee6743e029439e6515a403bdeda, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}

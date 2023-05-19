@@ -106,7 +106,7 @@ public class wizard : MonoBehaviour
             if (health == 0)
             {
                 if (canDrop)
-                    Instantiate(abilityGem, transform.position, Quaternion.identity);
+                    Instantiate(abilityGem, new Vector3(transform.position.x,transform.position.y-20f), Quaternion.identity);
                 anim.SetBool("moving", false);
                 gameObject.GetComponent<EnemyPatrol>().enabled = false;
                 gameObject.GetComponent<BoxCollider2D>().enabled = false;

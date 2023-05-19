@@ -48,7 +48,6 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
-        PlayerPrefs.SetInt("level1", 0);
 
     }
 

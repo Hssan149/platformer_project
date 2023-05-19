@@ -2,9 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Levels : MonoBehaviour
 {
+    private void Awake()
+    {
+        if ((PlayerPrefs.GetInt("level2") == 0))
+            transform.GetChild(1).gameObject.GetComponent<Button>().interactable = false;
+        else
+            transform.GetChild(1).gameObject.GetComponent<Button>().interactable = true;
+
+        if (PlayerPrefs.GetInt("level3") == 0)
+            transform.GetChild(2).gameObject.GetComponent<Button>().interactable = false;
+        else
+            transform.GetChild(2).gameObject.GetComponent<Button>().interactable = true;
+    }
     public void goBack ()
     {
         gameObject.SetActive(false);

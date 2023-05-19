@@ -21,10 +21,10 @@ public class In_Game_Menu : MonoBehaviour
     public void restart()//edit music
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        transform.position = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().startPoint.transform.position;
         Time.timeScale = 1;
         Player.paused = false;
         Player.dead = false;
-        GameManager.getInstance().lives = 4;
         if (SceneManager.GetActiveScene().name == "level1")
             AudioManager.Instance.playMusic("bgm_level1");
         else if (SceneManager.GetActiveScene().name == "level2")
@@ -41,6 +41,7 @@ public class In_Game_Menu : MonoBehaviour
 
         //reset gameManager
         GameManager.getInstance().coins_level = 0;
+        GameManager.getInstance().lives = 4;
 
     }
 
@@ -65,7 +66,7 @@ public class In_Game_Menu : MonoBehaviour
         Player.paused = false;
         Player.won = false;
         GameManager.getInstance().coins_level = 0;
-        GameManager.getInstance().coins_level = 0;
+        GameManager.getInstance().lives = 4;
         if (player.GetComponent<Player>().winText.activeSelf)
             player.GetComponent<Player>().winText.SetActive(false);
         //load next scene
