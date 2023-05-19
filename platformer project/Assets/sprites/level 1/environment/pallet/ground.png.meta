@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7a9f94ea7a4f1fd42b8fe0f745d71ffc
+guid: 84189b42f294d614fbce784fadc4bbf2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 42
   spriteBorder: {x: 64, y: 64, z: 321, w: 55}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -251,6 +251,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: tileset-sliced_7
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 31
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 018f606a5d1407247aa4be6f7fc9eaa2
+      internalID: 1537362137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline:
     - - {x: -224, y: -80}
       - {x: 224, y: -80}
@@ -273,6 +294,7 @@ TextureImporter:
       tileset-sliced_4: -913644018
       tileset-sliced_5: 1228005829
       tileset-sliced_6: 318525434
+      tileset-sliced_7: 1537362137
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

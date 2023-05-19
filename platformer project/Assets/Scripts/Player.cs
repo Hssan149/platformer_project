@@ -80,6 +80,8 @@ public class Player : MonoBehaviour
     private GameObject Lore_sign;
     [SerializeField]
     private GameObject Lore_hint;
+    [SerializeField]
+    private GameObject[] hints;//to show or hide hint signs
 
 
     void Start()
@@ -90,6 +92,20 @@ public class Player : MonoBehaviour
         gameObject.transform.GetChild(0).gameObject.GetComponent<BoxCollider2D>().enabled = false;
         spawnPoint = startPoint;
         GameManager.getInstance().currentLevel = SceneManager.GetActiveScene().name[GameManager.getInstance().currentLevel = SceneManager.GetActiveScene().name.Length - 1];
+        if(PlayerPrefs.GetInt("hint")==1)
+        {
+            foreach(GameObject n in hints)
+            {
+                n.SetActive(true);
+            }
+        }
+        else if (PlayerPrefs.GetInt("hint") == 0)
+        {
+            foreach (GameObject n in hints)
+            {
+                n.SetActive(false);
+            }
+        }
     }
 
     void Update()
@@ -171,7 +187,6 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "spawnPoint")//change spawn point on collision
         {
             spawnPoint = collision.gameObject;
-            print(spawnPoint.name);
         }
         else if (collision.gameObject.tag == "coin")//pick up collectables
         {
@@ -199,8 +214,9 @@ public class Player : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "abilityGem" && !haveAbility &&Input.GetKey(KeyCode.C))
+        if (collision.gameObject.tag == "abilityGem" && !haveAbility && Input.GetKey(KeyCode.C))
         {
+            collision.gameObject.GetComponent<Gemscript>().partSys.Play();
             if (collision.gameObject.GetComponent<SpriteRenderer>().sprite == sprites[0])
             {
                 haveAbility = true;
@@ -233,6 +249,7 @@ public class Player : MonoBehaviour
                 Destroy(collision.gameObject);
                 currentAbility.text = "Ability: Spark";
             }
+            
         }
     }
 

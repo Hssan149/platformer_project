@@ -9,6 +9,9 @@ public class AudioMenu : MonoBehaviour
     //sliders refernce
     public Slider musicSlider;
     public Slider sfxSlider;
+
+    private bool hints = true;
+
     public void goBack()//closed the audio settings menu
     {
         gameObject.SetActive(false);
@@ -66,6 +69,16 @@ public class AudioMenu : MonoBehaviour
             AudioManager.Instance.isSfxMuted = false;
             sfxSlider.value = .5f;
         }
+    }
+
+    public void showHints()
+    {
+        hints = !hints;
+        if (hints)
+            PlayerPrefs.SetInt("hint", 1);
+        else
+            PlayerPrefs.SetInt("hint", 0);
+        print(PlayerPrefs.GetInt("hint"));
     }
 
 }
