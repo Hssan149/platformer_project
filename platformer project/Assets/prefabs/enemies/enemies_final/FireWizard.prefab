@@ -68,7 +68,7 @@ GameObject:
   m_Component:
   - component: {fileID: 517622140942572581}
   m_Layer: 0
-  m_Name: RangedEnemies
+  m_Name: FireWizard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
