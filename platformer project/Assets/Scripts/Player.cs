@@ -211,6 +211,33 @@ public class Player : MonoBehaviour
             Lore_hint.SetActive(true);
             Time.timeScale = 0;
         }
+        /////melee enemies ai start
+        else if (collision.gameObject.tag == "enemyLeft")
+        {
+            //seperate the colliders and refernce the enemy in their script
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+        }
+        else if (collision.gameObject.tag == "enemyRight")
+        {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+
+        }
+        
+    }
+   
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "enemyRight" || collision.gameObject.tag == "enemyLeft")
+        {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = true;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().anim.SetBool("moving",true);
+        }
     }
 
     private void OnTriggerStay2D(Collider2D collision)
