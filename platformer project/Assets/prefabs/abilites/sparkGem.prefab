@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4692409696368661900}
   - component: {fileID: 4692409696368661901}
   m_Layer: 0
-  m_Name: Gems_22
+  m_Name: sparkGem
   m_TagString: abilityGem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

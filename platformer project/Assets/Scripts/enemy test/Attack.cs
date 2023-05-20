@@ -5,7 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public Animator anim;
-    private float knockBackStrength=100f;
+    //private float knockBackStrength=100f;
 
     private void OnEnable()
     {
@@ -18,7 +18,7 @@ public class Attack : MonoBehaviour
     {
         if(collision.gameObject.tag=="Player")
         {
-            //knock back try 
+            //knock back try
            // int dir = gameObject.GetComponent<Patrol>().direction;
            // collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(dir, 0f).normalized * knockBackStrength,ForceMode2D.Impulse);
             GameManager.getInstance().lives--;

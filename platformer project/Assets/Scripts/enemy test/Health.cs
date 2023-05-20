@@ -5,15 +5,20 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     public int lives = 2;
+    [SerializeField]
+    private GameObject abilityGem;
+    [SerializeField]
+    private bool canDrop;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="attack")
+        if(collision.gameObject.tag=="attack"|| collision.gameObject.tag == "fireBall"
+            || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
+            || collision.gameObject.tag == "spark")
         {
             lives--;
             if (lives != 0)
             {
-                gameObject.GetComponent<Animator>().SetTrigger("hit");
                 gameObject.GetComponent<Attack>().attack();
             }
             else
@@ -28,6 +33,8 @@ public class Health : MonoBehaviour
     IEnumerator waitDeath()
     {
         yield return new WaitForSeconds(.7f);
+        if (canDrop)
+            Instantiate(abilityGem, new Vector3(transform.position.x, transform.position.y - .75f), Quaternion.identity);
         Destroy(gameObject);
     }
 }

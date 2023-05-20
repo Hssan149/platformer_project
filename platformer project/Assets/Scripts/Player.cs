@@ -206,7 +206,7 @@ public class Player : MonoBehaviour
             //Destroy(Lore_box); --> it worked without destroying lore box (higher priority)
             Instantiate(Lore_box_opened, temp, Quaternion.identity);
         }
-        else if(collision.gameObject.tag == "loreHint")
+        else if (collision.gameObject.tag == "loreHint")
         {
             Lore_hint.SetActive(true);
             Time.timeScale = 0;
@@ -224,20 +224,42 @@ public class Player : MonoBehaviour
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
-
         }
-        
+        /////melee enemies ai end
+        /////ranged enemies ai start
+        else if (collision.gameObject.tag == "rangedLeft")
+        {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+        }
+        else if (collision.gameObject.tag == "rangedRight")
+        {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+        }
+        /////ranged enemies ai end
     }
-   
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
+        //melee enemy
         if (collision.gameObject.tag == "enemyRight" || collision.gameObject.tag == "enemyLeft")
         {
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = true;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = false;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().anim.SetBool("moving",true);
         }
+        else if (collision.gameObject.tag == "rangedRight"|| collision.gameObject.tag == "rangedLeft")//ranged enemy
+        {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().CancelInvoke();
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = true;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = false;
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().anim.SetBool("moving", true);
+        }
+
     }
 
     private void OnTriggerStay2D(Collider2D collision)
