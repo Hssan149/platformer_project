@@ -384,6 +384,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2694256601874861356, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}
   m_PrefabInstance: {fileID: 2471660918703233181}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &517622141232158131 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2694256601874861358, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}
+  m_PrefabInstance: {fileID: 2471660918703233181}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &517622141232158132 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2694256601874861353, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}
@@ -410,21 +415,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &2471660918703233178
+--- !u!114 &2471660918703233171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517622141232158132}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7c47fa86ed7d04694ba066fabc22df, type: 3}
+  m_Script: {fileID: 11500000, guid: 9ca9d23e2e9c93e4d92e1663b2695d86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
-  abilityGem: {fileID: 6407640520688705780, guid: 9738d2b1d83595949906e4979f54e2c8, type: 3}
-  canDrop: 0
+  anim: {fileID: 517622141232158131}
+  attackPoint: {fileID: 517622141251452252}
+  spell: {fileID: 89502880268532048, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
+  coolDown: 1.6
 --- !u!114 &2471660918703233172
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -441,22 +447,21 @@ MonoBehaviour:
   direction: -1
   sp: {fileID: 0}
   anim: {fileID: 0}
---- !u!114 &2471660918703233171
+--- !u!114 &2471660918703233178
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 517622141232158132}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ca9d23e2e9c93e4d92e1663b2695d86, type: 3}
+  m_Script: {fileID: 11500000, guid: 1c7c47fa86ed7d04694ba066fabc22df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  attackPoint: {fileID: 517622141251452252}
-  spell: {fileID: 89502880268532048, guid: a7f4a7dfe32183446907bc765aa55eed, type: 3}
-  coolDown: 1.6
+  lives: 1
+  abilityGem: {fileID: 6407640520688705780, guid: 9738d2b1d83595949906e4979f54e2c8, type: 3}
+  canDrop: 0
 --- !u!1 &517622141251452252 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2694256601894675905, guid: 41331e6a8fd9a0542a07c3251e0e177e, type: 3}

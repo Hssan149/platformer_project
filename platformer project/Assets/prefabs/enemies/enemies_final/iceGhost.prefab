@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 517622140942572582, guid: fd983295c66a0c545b0bd6e743fa8eae, type: 3}
       propertyPath: m_Name
-      value: iceGhost1
+      value: iceGhost
       objectReference: {fileID: 0}
     - target: {fileID: 517622141232158127, guid: fd983295c66a0c545b0bd6e743fa8eae, type: 3}
       propertyPath: m_Size.y

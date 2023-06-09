@@ -116,7 +116,7 @@ public class Gost : MonoBehaviour
     {
         yield return new WaitForSeconds(.4f);
         AudioManager.Instance.playSfx("Enemy1");
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent);
 
     }
 

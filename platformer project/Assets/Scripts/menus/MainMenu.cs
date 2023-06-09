@@ -14,6 +14,8 @@ public class MainMenu : MonoBehaviour
     private GameObject continueButton;
     [SerializeField]
     private GameObject controls;
+    [SerializeField]
+    private GameObject credits;
 
     private void Awake()
     {
@@ -61,6 +63,10 @@ public class MainMenu : MonoBehaviour
         AudioSettings.SetActive(true);
     }
 
+    public void showCredits()
+    {
+        credits.SetActive(true);
+    }
     public void showButtons()
     {
         controls.SetActive(true);

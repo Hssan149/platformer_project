@@ -7,9 +7,19 @@ public class Attack : MonoBehaviour
     public Animator anim;
     //private float knockBackStrength=100f;
 
+    private void Awake()
+    {
+        anim = gameObject.GetComponent<Animator>();
+    }
+
     private void OnEnable()
     {
-        anim = GetComponent<Animator>();
+        anim = gameObject.GetComponent<Animator>();
+    }
+
+    private void Start()
+    {
+        anim = gameObject.GetComponent<Animator>();
         anim.SetBool("moving", false);
         attack();
     }

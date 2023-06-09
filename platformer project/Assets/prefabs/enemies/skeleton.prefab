@@ -131,7 +131,7 @@ MonoBehaviour:
     m_Bits: 8
   flipDuration: 0
   abilityGem: {fileID: 0}
-  anim: {fileID: 0}
+  anim: {fileID: 1920823698093885773}
   canDrop: 0
 --- !u!114 &1920823698093885770
 MonoBehaviour:

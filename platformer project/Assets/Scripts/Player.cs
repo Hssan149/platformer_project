@@ -214,30 +214,42 @@ public class Player : MonoBehaviour
         /////melee enemies ai start
         else if (collision.gameObject.tag == "enemyLeft")
         {
-            //seperate the colliders and refernce the enemy in their script
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+            if (collision.gameObject != null)
+            {
+                //seperate the colliders and refernce the enemy in their script
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+            }
         }
         else if (collision.gameObject.tag == "enemyRight")
         {
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+            if (collision.gameObject != null)
+            {
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = true;
+            }
         }
         /////melee enemies ai end
         /////ranged enemies ai start
         else if (collision.gameObject.tag == "rangedLeft")
         {
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+            if (collision.gameObject != null)
+            {
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = true;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+            }
         }
         else if (collision.gameObject.tag == "rangedRight")
         {
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+            if (collision.gameObject != null)
+            {
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<SpriteRenderer>().flipX = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = false;
+                collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = true;
+            }
         }
         /////ranged enemies ai end
     }
@@ -248,16 +260,22 @@ public class Player : MonoBehaviour
         //melee enemy
         if (collision.gameObject.tag == "enemyRight" || collision.gameObject.tag == "enemyLeft")
         {
+            if (collision.gameObject != null) 
+            {
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().enabled = true;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Attack>().enabled = false;
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().anim.SetBool("moving",true);
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Patrol>().anim.SetBool("moving", true); 
+            }
         }
-        else if (collision.gameObject.tag == "rangedRight"|| collision.gameObject.tag == "rangedLeft")//ranged enemy
+        else if (collision.gameObject.tag == "rangedRight" || collision.gameObject.tag == "rangedLeft")//ranged enemy
         {
-            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().CancelInvoke();
+            if (collision.gameObject != null)
+            {
+            collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().CancelInvoke();     
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().enabled = true;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<Shoot>().enabled = false;
             collision.gameObject.GetComponent<Colliders>().meleeEnemy.GetComponent<RangedPatrol>().anim.SetBool("moving", true);
+            }
         }
 
     }
@@ -546,7 +564,10 @@ public class Player : MonoBehaviour
         Time.timeScale = 0;
         won = true;
         pause_menu.transform.GetChild(0).gameObject.SetActive(false);
-        pause_menu.transform.GetChild(4).gameObject.SetActive(true);
+        if(SceneManager.GetActiveScene().name=="level1")
+            pause_menu.transform.GetChild(4).gameObject.SetActive(true);
+        else
+            pause_menu.transform.GetChild(4).gameObject.SetActive(false);
         pause_menu.SetActive(true);
         paused = true;
         winText.SetActive(true);

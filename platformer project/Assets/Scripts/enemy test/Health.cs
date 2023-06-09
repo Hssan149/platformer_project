@@ -35,6 +35,6 @@ public class Health : MonoBehaviour
         yield return new WaitForSeconds(.7f);
         if (canDrop)
             Instantiate(abilityGem, new Vector3(transform.position.x, transform.position.y - .75f), Quaternion.identity);
-        Destroy(gameObject);
+        Destroy(gameObject.transform.parent.gameObject);
     }
 }

@@ -418,8 +418,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  sp: {fileID: 0}
-  anim: {fileID: 0}
+  direction: 1
+  sp: {fileID: 5482988785800493818}
+  anim: {fileID: 5482988785800493817}
 --- !u!114 &6250820060230159943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -446,6 +447,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lives: 2
+  abilityGem: {fileID: 0}
+  canDrop: 0
+--- !u!95 &5482988785800493817 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1920823698093885773, guid: 8ff2d1260fa5818438f100fc0eaea59a, type: 3}
+  m_PrefabInstance: {fileID: 6250820059680175028}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &5482988785800493818 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 1920823698093885774, guid: 8ff2d1260fa5818438f100fc0eaea59a, type: 3}
+  m_PrefabInstance: {fileID: 6250820059680175028}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5482988785800493819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1920823698093885775, guid: 8ff2d1260fa5818438f100fc0eaea59a, type: 3}
