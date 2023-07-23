@@ -4730,7 +4730,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 57049361bbcc5cd4c9a5158559cb6487, type: 3}
   sfx:
   - name: sword
-    clip: {fileID: 8300000, guid: 96f7b8f36b2545548b3e3247147785b5, type: 3}
+    clip: {fileID: 8300000, guid: bd51532f6801c8c4da1f2e29a12e2814, type: 3}
   - name: Fire Ball out
     clip: {fileID: 8300000, guid: f386c9a8eab3a62479370001f040de8d, type: 3}
   - name: Fire ball Explosion
@@ -7744,7 +7744,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.812
   m_Pitch: 1
   Loop: 0
   Mute: 0
