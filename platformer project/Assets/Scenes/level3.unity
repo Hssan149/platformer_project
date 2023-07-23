@@ -5863,7 +5863,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 574344936}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 11.8260355, y: 4.5410595, z: -10}
+  m_LocalPosition: {x: 13.157038, y: 4.5410595, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -12054,7 +12054,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1336879495}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.8260355, y: 4.5410595, z: -10}
+  m_LocalPosition: {x: 13.157038, y: 4.5410595, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -14433,6 +14433,7 @@ MonoBehaviour:
   Lore_box_opened: {fileID: 8413483654420384789, guid: c898855be4e1da4459158a87577e5b3b, type: 3}
   Lore_sign: {fileID: 0}
   Lore_hint: {fileID: 0}
+  hints: []
 --- !u!50 &1573154726
 Rigidbody2D:
   serializedVersion: 4
@@ -16857,6 +16858,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSlider: {fileID: 366164678}
   sfxSlider: {fileID: 409284394}
+  check: {fileID: 0}
 --- !u!114 &1823754224
 MonoBehaviour:
   m_ObjectHideFlags: 0
