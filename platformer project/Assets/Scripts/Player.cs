@@ -252,6 +252,7 @@ public class Player : MonoBehaviour
             }
         }
         /////ranged enemies ai end
+        else if (collision.gameObject.tag == "bossLeft") ;
     }
 
 
@@ -386,7 +387,7 @@ public class Player : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.X)&&canAttack)
         {
-             AudioManager.Instance.playSfx("sword");
+            // AudioManager.Instance.playSfx("sword");
             canAttack = false;
             GameObject Attack = gameObject.transform.GetChild(0).gameObject;
             Attack.GetComponent<BoxCollider2D>().enabled = true;

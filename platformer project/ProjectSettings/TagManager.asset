@@ -36,6 +36,9 @@ TagManager:
   - enemyRight
   - rangedLeft
   - rangedRight
+  - bossLeft
+  - bossRight
+  - boss
   layers:
   - Default
   - TransparentFX

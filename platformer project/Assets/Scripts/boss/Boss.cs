@@ -12,6 +12,8 @@ public class Boss : MonoBehaviour
 
     private Rigidbody2D rb;
     private Animator anim;
+
+    private float speed = 2.3f;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,6 +45,13 @@ public class Boss : MonoBehaviour
         {
             anim.SetBool("followPlayer", true);
             LookAtPlayer();
+            Vector2 temp = transform.position;
+            if (transform.position.x > player.position.x)
+                temp.x -= 1 * speed* Time.deltaTime;
+            else
+                temp.x += 1 * speed * Time.deltaTime;
+            transform.position = temp;
+           // rb.AddForce(new Vector2(direction.x, transform.position.y)*speed);
             if (lives == 0)
             {
                 gameObject.GetComponent<Animator>().SetBool("die", true);
@@ -56,11 +65,16 @@ public class Boss : MonoBehaviour
         }
     }
 
+    //public void attack()
+    //{
+    //    anim.SetBool("chargedAttack",true);
+    //}
+
     IEnumerator turnOffCollider()
     {
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = false;
         yield return new WaitForSeconds(1f);
-        gameObject.GetComponent<BoxCollider2D>().enabled = true;
+        gameObject.GetComponent<CapsuleCollider2D>().enabled = true;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -69,7 +83,11 @@ public class Boss : MonoBehaviour
             || collision.gameObject.tag == "blizzard" || collision.gameObject.tag == "shock"
             || collision.gameObject.tag == "spark")
         {
+            anim.SetBool("followPlayer", false);
+            anim.SetBool("hit", true);
             lives--;
+            StartCoroutine(waitForHit(.7f));
+            
         }
         else if(collision.gameObject.tag=="Player")
         {
@@ -77,5 +95,12 @@ public class Boss : MonoBehaviour
             GameObject.FindGameObjectWithTag("Player").GetComponent<Player>().hearts[GameManager.getInstance().lives].SetActive(false);
             StartCoroutine("turnOffCollider");
         }
+    }
+
+    IEnumerator waitForHit(float time)
+    {
+        yield return new WaitForSeconds(time);
+        anim.SetBool("hit", false);
+        anim.SetBool("followPlayer", true);
     }
 }
