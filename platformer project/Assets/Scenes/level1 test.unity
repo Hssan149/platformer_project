@@ -909,7 +909,6 @@ MonoBehaviour:
     and v to discard it.
   messageCanvas: {fileID: 1756030312}
   nice: {fileID: 1306092519}
-  message: {fileID: 81881828}
 --- !u!1 &62377096
 GameObject:
   m_ObjectHideFlags: 0
@@ -2511,7 +2510,6 @@ MonoBehaviour:
   checkpointMessage: Press X to attck enemies
   messageCanvas: {fileID: 1885909299}
   nice: {fileID: 1035813132}
-  message: {fileID: 1145396606}
 --- !u!1 &180873349
 GameObject:
   m_ObjectHideFlags: 0
@@ -22511,7 +22509,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1183877605}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6, y: -10.5, z: 0}
+  m_LocalPosition: {x: 5.58, y: -10.69, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -23468,7 +23466,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254614164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.02903366, y: -7.1120043, z: -10}
+  m_LocalPosition: {x: 11.601461, y: -7.302004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -25398,7 +25396,6 @@ MonoBehaviour:
   checkpointMessage: press space to jump !
   messageCanvas: {fileID: 1457536653}
   nice: {fileID: 1324105067}
-  message: {fileID: 932028980}
 --- !u!4 &1453006488
 Transform:
   m_ObjectHideFlags: 0
@@ -37324,6 +37321,9 @@ GameObject:
   - component: {fileID: 2060236215}
   - component: {fileID: 2060236214}
   - component: {fileID: 2060236213}
+  - component: {fileID: 2060236217}
+  - component: {fileID: 2060236218}
+  - component: {fileID: 2060236219}
   m_Layer: 0
   m_Name: boss
   m_TagString: Untagged
@@ -37341,7 +37341,7 @@ Animator:
   m_GameObject: {fileID: 2060236212}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 92dff5d739ba0d942ac46086a6542cd7, type: 2}
+  m_Controller: {fileID: 9100000, guid: d7aa71d7cb1e3d540aea078a63cb3ca1, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -37393,9 +37393,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 6
-  m_Sprite: {fileID: 526945119, guid: 36146e4b47df5cd4eb744d040334ff6b, type: 3}
+  m_Sprite: {fileID: 1618154702, guid: 36146e4b47df5cd4eb744d040334ff6b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.28, y: 0.32}
@@ -37412,13 +37412,65 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2060236212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.75, y: -10.56, z: 0}
+  m_LocalPosition: {x: 19.44, y: -8.44, z: 0}
   m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2060236217
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060236212}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!70 &2060236218
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060236212}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.01868996, y: -0.007695824}
+  m_Size: {x: 0.3170175, y: 0.33460838}
+  m_Direction: 0
+--- !u!114 &2060236219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2060236212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a898b8475628b244bb4fc9606f6eff0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayerHere: 0
+  player: {fileID: 1183877608}
+  isFlipped: 0
 --- !u!1 &2061703422
 GameObject:
   m_ObjectHideFlags: 0
@@ -37763,7 +37815,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105423355}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.02903366, y: -7.1120043, z: -10}
+  m_LocalPosition: {x: 11.601461, y: -7.302004, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

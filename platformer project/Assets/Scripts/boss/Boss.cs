@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class Boss : MonoBehaviour
 {
-
+    public bool isPlayerHere = false;
     public Transform player;
 
-    public bool isFlipped = false;
+    public bool isFlipped = true;
     private int lives = 5;
+
+    private Rigidbody2D rb;
+    private Animator anim;
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+    }
 
     public void LookAtPlayer()
     {
@@ -31,11 +39,20 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if(lives==0)
+        if (isPlayerHere)
         {
-            gameObject.GetComponent<Animator>().SetBool("die",true);
-            gameObject.GetComponent<Animator>().SetBool("moving",false);
-            Destroy(gameObject);
+            anim.SetBool("followPlayer", true);
+            LookAtPlayer();
+            if (lives == 0)
+            {
+                gameObject.GetComponent<Animator>().SetBool("die", true);
+                gameObject.GetComponent<Animator>().SetBool("moving", false);
+                Destroy(gameObject);
+            }
+        }
+        else
+        {
+            anim.SetBool("followPlayer", false);
         }
     }
 
